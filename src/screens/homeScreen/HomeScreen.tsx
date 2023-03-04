@@ -23,13 +23,17 @@ import { resetIdentityChild } from '../../store/childState/identityChild'
 import { globalStyles } from '../../utils/globalStyles'
 import { RootState } from '../../store/store'
 import { resetListFichePatient } from '../../store/listePatients/listefichesPatients'
+import LockScreen from './components/LockScreen'
+import ChoosePassword from './components/ChoosePassword'
 
 export type HomeScreenProps = StackNavigationProp<RootStackParamList, "Home">
 
 const HomeScreen:FC = () => {
+  const [toNewPassword, setToNewPassword] = useState<boolean>(false)
   const [locked, setLocked] = useState<boolean>(true)
   const [motDePasseInput, setMotdePasseInput] = useState<string>("")
 
+  const { password } = useSelector((state: RootState)=> state.password)
   const { listeFichesPatient } = useSelector((state: RootState)=> state.listeFichesPatient)
 
   const navigation = useNavigation<HomeScreenProps>()
@@ -59,10 +63,10 @@ const HomeScreen:FC = () => {
 
 
   useEffect(()=>{
-    if(motDePasseInput==="123456789"){
-      setLocked(false)
+    if(password === undefined){
+      setToNewPassword(true)
     }
-  }, [motDePasseInput])
+  }, [password])
   
   
   useEffect(()=>{
@@ -71,14 +75,8 @@ const HomeScreen:FC = () => {
     })
   }, [navigation])
 
-  useEffect(()=> {
-    if(listeFichesPatient.length>0){
-      console.log(listeFichesPatient)
-    }
-  }, [listeFichesPatient])
-  
   const handleGetAccess = (input:string): void=>{
-    if(input==='123456789'){
+    if(input===password){
       setLocked(false)
     }
   }
@@ -114,34 +112,21 @@ const HomeScreen:FC = () => {
   }
     
   return (
-    <View style={{flex:1, justifyContent:'center', alignItems:"center"}}>
+    <View style={{flex:1, justifyContent:'center', alignItems:"center", width:"100%"}}>
       {
-        locked ?
-        <View style={{alignItems:"center"}}>
-          <Text style={[globalStyles.label, {color:"black"}]} >
-            Tapez le mot de passe :
-          </Text>
-          <TextInput
-            style={[globalStyles.input, {width:650}]}
-            onChangeText={(text)=>setMotdePasseInput(text)}
-            secureTextEntry={true}
-          />
-          <Button
-            style={{backgroundColor:"red", width:600, height:50, marginVertical:20}}
-            labelStyle={{fontSize:20, flex:1, color:"#fff", justifyContent:"center", paddingHorizontal:0}}
-            onPress={()=>handleGetAccess(motDePasseInput)}
-          >
-            Valider mot de passe
-          </Button>
-        </View>
+        toNewPassword ?
+        <ChoosePassword setToNewPassword={setToNewPassword} />
         :
-        <View>
+        locked ?
+        <LockScreen setMotDePasseInput={setMotdePasseInput} motDePasseInput={motDePasseInput} handleGetAccess={handleGetAccess} setToNewPassword={setToNewPassword} />
+        :
+        <View style={[globalStyles.homeInputContainer, {alignItems:"center"}]}>
           <Text style={[styles.text, {marginBottom:50, textAlign:'center'}]}>Accueil</Text>
           <Button
             mode="contained"
             buttonColor='green'
             onPress={pressNouveauPatientAdulte}
-            style={[globalStyles.homeButtonStyle, {marginBottom:50}]}
+            style={[globalStyles.homeButtonStyle]}
             labelStyle={{fontSize:20, flex:1, justifyContent:"center", paddingHorizontal:0}}
           >
             Questionnaire Nouveau patient
@@ -150,46 +135,53 @@ const HomeScreen:FC = () => {
             mode="contained"
             onPress={pressNouveauPatientEnfant}
             buttonColor='#1C9CEB'
-            style={[globalStyles.homeButtonStyle, {marginBottom:50}]}
+            style={[globalStyles.homeButtonStyle]}
             labelStyle={{fontSize:20, flex:1, justifyContent:"center", paddingHorizontal:0}}
           >
             Questionnaire Enfant
           </Button>
-          <View>
-            <Button
-              mode='contained'
-              dark={true}
-              buttonColor='orange'
-              onPress={pressToListePatients}
-              style={[globalStyles.homeButtonStyle, {marginBottom:50}]}
-              labelStyle={{fontSize:17, flex:1, justifyContent:"center", paddingHorizontal:0}}
-            >
-              Exporter les fiches patients
-            </Button>
-          </View>
-          <View>
-            <Button
-              mode='contained'
-              dark={true}
-              onPress={createTwoButtonAlert}
-              buttonColor='red'
-              style={[globalStyles.homeButtonStyle, {marginBottom:50}]}
-              labelStyle={{fontSize:17, flex:1, justifyContent:"center", paddingHorizontal:0}}
-            >
-              Supprimer les précédentes listes de patients
-            </Button>
-          </View>
-          <View>
-            <Button
-              mode='contained'
-              dark={true}
-              onPress={()=>setLocked(true)}
-              style={globalStyles.homeButtonStyle}
-              labelStyle={{fontSize:17, flex:1, justifyContent:"center", paddingHorizontal:0}}
-            >
-              Verrouiller l'écran d'Accueil
-            </Button>
-          </View>
+          <Button
+            mode='contained'
+            dark={true}
+            buttonColor='orange'
+            onPress={pressToListePatients}
+            style={[globalStyles.homeButtonStyle]}
+            labelStyle={{fontSize:17, flex:1, justifyContent:"center", paddingHorizontal:0}}
+          >
+            Exporter les fiches patients
+          </Button>
+          <Button
+            mode='contained'
+            dark={true}
+            onPress={createTwoButtonAlert}
+            buttonColor='red'
+            style={[globalStyles.homeButtonStyle]}
+            labelStyle={{fontSize:17, flex:1, justifyContent:"center", paddingHorizontal:0}}
+          >
+            Supprimer les précédentes listes de patients
+          </Button>
+          <Button
+            buttonColor='#3c3744'
+            mode='contained'
+            dark={true}
+            onPress={()=>{
+              setToNewPassword(true)
+              setLocked(true)
+            }}
+            style={globalStyles.homeButtonStyle}
+            labelStyle={{fontSize:17, flex:1, justifyContent:"center", paddingHorizontal:0}}
+          >
+            Changer le mot de passe
+          </Button>
+          <Button
+            mode='contained'
+            dark={true}
+            onPress={()=>setLocked(true)}
+            style={globalStyles.homeButtonStyle}
+            labelStyle={{fontSize:17, flex:1, justifyContent:"center", paddingHorizontal:0}}
+          >
+            Verrouiller l'écran d'Accueil
+          </Button>
         </View>
       }  
     </View>

@@ -21,6 +21,8 @@ const CheckBoxComponent: FC<CheckBoxComponentProps> = ({title, maladies, handleC
         color:`${maladies && maladies.includes(title) ? "green" : "black" }`,
         fontSize:20,
         marginTop:0,
+        flexWrap:"wrap",
+        paddingRight:10
       }}
       style={{marginVertical:5}} 
       fillColor="green" 

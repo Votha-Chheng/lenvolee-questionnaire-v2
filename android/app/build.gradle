@@ -93,13 +93,13 @@ android {
 
     compileSdkVersion rootProject.ext.compileSdkVersion
 
-    namespace "com.questionnairecabinetlenvolee"
+    namespace "com.lenvoleequestionnaire.v2"
     defaultConfig {
-        applicationId "com.questionnairecabinetlenvolee"
+        applicationId "com.lenvoleequestionnaire.v2"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 1
-        versionName "1.0"
+        versionCode 2
+        versionName "1.0.0"
     }
 
     splits {

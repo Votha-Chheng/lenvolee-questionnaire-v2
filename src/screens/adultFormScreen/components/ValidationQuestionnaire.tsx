@@ -6,10 +6,10 @@ import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../../store/store';
 import { HomeScreenProps } from '../../homeScreen/HomeScreen';
 import { globalStyles } from '../../../utils/globalStyles';
-import { saveIncompleteForm } from '../../../utils/alertButtons';
 import { setListeFichePatient } from '../../../store/listePatients/listefichesPatients';
 import { handleFicheReponseInListePatients } from '../../../utils/handleFicheReponseInListePatients';
 import { FicheReponses } from '../../../classes/FicheReponses';
+import { displayAlertWithTwoButtons } from '../../../utils/alertButtons';
 
 const ValidationQuestionnaire: FC = () => {
   const {identity, consultationInfo, dentsInfo, diversInfo, esthetiqueInfo, gencivesInfo, habitudesInfo, hygienDentaireInfo, machoireInfo, medicalHistory} = useSelector((state: RootState) => state)
@@ -103,7 +103,7 @@ const ValidationQuestionnaire: FC = () => {
       }
       <Pressable 
         style={{width:"90%"}}
-        onLongPress={()=> saveIncompleteForm(
+        onLongPress={()=> displayAlertWithTwoButtons(
           "Il semble y avoir des réponses manquantes dans le questionnaire...", 
           "Voulez-vous quand même valider les réponses du questionnaire ?", 
           "Valider quand même", 

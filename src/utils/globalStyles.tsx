@@ -20,6 +20,7 @@ export const globalStyles = StyleSheet.create({
   flexRow : {
     flexDirection:"row", 
     alignItems:"flex-end",
+    flexWrap:"wrap",
     marginBottom:20
   },
   input : {
@@ -57,12 +58,17 @@ export const globalStyles = StyleSheet.create({
     flex: 1
   },
   homeButtonStyle : {
-    width:600, 
+    width:"90%", 
     height:60,
-    justifyContent: "center"
+    justifyContent: "center",
+    marginBottom:35
   },
   validationButton : {
     width: "100%",  
     borderRadius:7.5
+  },
+  homeInputContainer: {
+    width:"100%",
+    marginVertical: 15
   }
 })

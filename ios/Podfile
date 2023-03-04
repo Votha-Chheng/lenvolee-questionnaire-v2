@@ -21,7 +21,7 @@ if linkage != nil
   use_frameworks! :linkage => linkage.to_sym
 end
 
-target 'questionnaireCabinetLenvolee' do
+target 'lenvoleequestionnairev2' do
   config = use_native_modules!
 
   # Flags change depending on the env values.
@@ -43,7 +43,7 @@ target 'questionnaireCabinetLenvolee' do
     :app_path => "#{Pod::Config.instance.installation_root}/.."
   )
 
-  target 'questionnaireCabinetLenvoleeTests' do
+  target 'lenvoleequestionnairev2Tests' do
     inherit! :complete
     # Pods for testing
   end

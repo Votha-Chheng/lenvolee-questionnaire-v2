@@ -1,4 +1,4 @@
-package com.questionnairecabinetlenvolee;
+package com.lenvoleequestionnaire.v2;
 
 import android.app.Application;
 import com.facebook.react.PackageList;

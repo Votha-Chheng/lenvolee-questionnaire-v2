@@ -1,4 +1,4 @@
-package com.questionnairecabinetlenvolee;
+package com.lenvoleequestionnaire.v2;
 
 import android.os.Bundle;
 import com.facebook.react.ReactActivity;
@@ -20,7 +20,7 @@ public class MainActivity extends ReactActivity {
    */
   @Override
   protected String getMainComponentName() {
-    return "questionnaireCabinetLenvolee";
+    return "lenvolee questionnaire v2";
   }
 
   /**

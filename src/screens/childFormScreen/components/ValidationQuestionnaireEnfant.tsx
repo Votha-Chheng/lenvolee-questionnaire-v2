@@ -6,7 +6,7 @@ import { Button } from 'react-native-paper'
 import { useNavigation } from '@react-navigation/native'
 import { HomeScreenProps } from '../../homeScreen/HomeScreen'
 import { globalStyles } from '../../../utils/globalStyles'
-import { saveIncompleteForm } from '../../../utils/alertButtons'
+import { displayAlertWithTwoButtons } from '../../../utils/alertButtons'
 import { FicheReponses } from '../../../classes/FicheReponses'
 import { handleFicheReponseInListePatients } from '../../../utils/handleFicheReponseInListePatients'
 import { setListeFichePatient } from '../../../store/listePatients/listefichesPatients'
@@ -82,7 +82,7 @@ const ValidationQuestionnaireEnfant: FC = () => {
       }
       <Pressable
         style={{width: "90%"}}
-        onLongPress={()=> saveIncompleteForm(
+        onLongPress={()=> displayAlertWithTwoButtons(
           "Il semble y avoir des réponses manquantes dans le questionnaire...", 
           "Voulez-vous quand même valider les réponses du questionnaire ?", 
           "Valider quand même", 

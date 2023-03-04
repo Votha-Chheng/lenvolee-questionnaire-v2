@@ -18,6 +18,7 @@ import etatBuccoDentaireChildReducer from './childState/etatBuccoDentaire'
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import {persistReducer} from 'redux-persist'
 import listefichesPatientsReducer from './listePatients/listefichesPatients'
+import passwordReducer from './password/password'
 
 const reducers = combineReducers({
   identity : identityReducer,
@@ -36,12 +37,13 @@ const reducers = combineReducers({
   etatDeSanteChild : etatSanteChildReducer,
   etatBuccoDentaireChild: etatBuccoDentaireChildReducer,
   listeFichesPatient : listefichesPatientsReducer,
+  password : passwordReducer
 })
 
 const persistConfig = {
   key: "root",
   storage: AsyncStorage,
-  whitelist: ['listeFichesPatient']
+  whitelist: ['listeFichesPatient, password']
   
 }
 
