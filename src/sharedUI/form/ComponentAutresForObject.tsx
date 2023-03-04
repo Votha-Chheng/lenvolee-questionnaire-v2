@@ -103,7 +103,7 @@ const ComponentAutresForObject:FC<ComponentAutresForObjectProps> = ({
         <View>
           <View style={[globalStyles.flexRow, {alignItems:"center"}]}>
             <TextInput
-              style={[globalStyles.input, {width:widthFirstInput, height:50, marginRight:10, borderColor:`${inputNomMedicament.length>0 ? "gray": "red"}`}]}  
+              style={[globalStyles.input, {width:widthFirstInput, height:50, marginRight:10, marginTop:5, borderColor:`${inputNomMedicament.length>0 ? "gray": "red"}`}]}  
               onChangeText={(text)=>{
                 if(text.length>1){
                   setInputNomMedicament(text.trim())
@@ -117,7 +117,7 @@ const ComponentAutresForObject:FC<ComponentAutresForObjectProps> = ({
             <Text style={{fontWeight:"bold"}}>{liaison} </Text>
             <TextInput
               autoCapitalize='none'
-              style={[globalStyles.input, {width:widthSecondInput, height:50, marginRight:10, borderColor:`${inputFrequence.length>0 ? "gray": "red"}`}]}  
+              style={[globalStyles.input, {width:widthSecondInput, height:50, marginRight:10, marginTop:5, borderColor:`${inputFrequence.length>0 ? "gray": "red"}`}]}  
               keyboardType={keyboardForInput}
               onChangeText={(text)=>{
                 if(text.length>0){

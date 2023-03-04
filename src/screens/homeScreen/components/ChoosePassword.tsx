@@ -105,8 +105,9 @@ const ChoosePassword: FC<ChoosePasswordProps> = ({setToNewPassword}) => {
       </View>
       <View style={globalStyles.flexRow}>
         <Button
+          disabled={password === undefined ? true: false}
           buttonColor='red'
-          style={{height:50, marginVertical:20, width:"50%", marginHorizontal:2.5}}
+          style={{height:50, marginVertical:20, width:"40%", marginHorizontal:2.5}}
           labelStyle={{fontSize:20, flex:1, color:"#fff", justifyContent:"center", paddingTop:5}}
           onPress={()=>{
             setOldMotDePasseInput("")
@@ -119,7 +120,7 @@ const ChoosePassword: FC<ChoosePasswordProps> = ({setToNewPassword}) => {
         </Button>
         <Button
           buttonColor='green'
-          style={{height:50, marginVertical:20, width:"50%", marginHorizontal:2.5}}
+          style={{height:50, marginVertical:20, width:"40%", marginHorizontal:2.5}}
           labelStyle={{fontSize:20, flex:1, color:"#fff", justifyContent:"center", paddingTop:5}}
           onPress={()=>handleNewPasswordValidation(oldMotDePasseInput, newMotDePasseInput, confirmNewMotDePasseInput)}
         >

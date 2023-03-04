@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, Animated, SafeAreaView, useWindowDimensions } from 'react-native'
+import { StyleSheet, Text, View, SafeAreaView, useWindowDimensions } from 'react-native'
 import React, { FC, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../../store/store';

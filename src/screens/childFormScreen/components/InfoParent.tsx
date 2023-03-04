@@ -94,17 +94,17 @@ const InfoParent:FC<InfoParentProps> = ({whichParent, reducerFromStore, parentTw
       </View>
       }
 
-    <View style={{marginBottom:20}}>
-      <LabelInputForObject
-        question="Profession (écrire 'Aucune' si sans profession)"
-        statement={whichParent.profession}
-        reducerFromStore={reducerFromStore}
-        flexRow={false}
-        obj={whichParent}
-        keyValue="profession"
-        width={500}
-      />
-    </View>
+      <View style={{marginBottom:20}}>
+        <LabelInputForObject
+          question="Profession (écrire 'Aucune' si sans profession)"
+          statement={whichParent.profession}
+          reducerFromStore={reducerFromStore}
+          flexRow={false}
+          obj={whichParent}
+          keyValue="profession"
+          width={500}
+        />
+      </View>
     </View>
   )
 }

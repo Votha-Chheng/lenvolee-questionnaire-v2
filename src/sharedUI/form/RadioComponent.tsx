@@ -33,7 +33,7 @@ const RadioComponent: FC<RadioComponentProps> = ({valueState, setValueToTrue, se
           onPress={()=> setValueToFalse()}
         />
         <Text 
-          style={valueState===undefined || valueState ? {fontSize: 20, color:"grey"} : {fontSize: 20, color:"green", fontWeight:"bold"}}
+          style={valueState===undefined || valueState ? {fontSize: 20, color:"grey", flexWrap:"wrap"} : {fontSize: 20, color:"green", fontWeight:"bold", flexWrap:"wrap"}}
         >
           NON
         </Text>

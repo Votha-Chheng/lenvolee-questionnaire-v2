@@ -15,10 +15,10 @@ import identityAccompagnantReducer from './childState/identityAccompagnant'
 import consultationChildReducer from './childState/consultationChild'
 import etatSanteChildReducer from './childState/etatSanteChild'
 import etatBuccoDentaireChildReducer from './childState/etatBuccoDentaire'
-import AsyncStorage from '@react-native-async-storage/async-storage'
-import {persistReducer} from 'redux-persist'
 import listefichesPatientsReducer from './listePatients/listefichesPatients'
 import passwordReducer from './password/password'
+import AsyncStorage from '@react-native-async-storage/async-storage'
+import {persistReducer} from 'redux-persist'
 
 const reducers = combineReducers({
   identity : identityReducer,
@@ -43,7 +43,7 @@ const reducers = combineReducers({
 const persistConfig = {
   key: "root",
   storage: AsyncStorage,
-  whitelist: ['listeFichesPatient, password']
+  whitelist: ['listeFichesPatient', 'password']
   
 }
 

@@ -12,7 +12,7 @@ export type MultipleRadioComponentProps = {
 
 const MultipleRadioComponent:FC<MultipleRadioComponentProps> = ({choix, valueState, dispatcher, reducerFromStore}: MultipleRadioComponentProps) => {
   return ( 
-    <View style={[globalStyles.flexRow, {marginBottom:0}]}>
+    <View style={[globalStyles.flexRow, {marginBottom:7.5, flexWrap:"nowrap", alignItems:"center"}]}>
       <RadioButton
         value={choix}
         status={valueState===undefined || !valueState? 'unchecked' : valueState===choix ? 'checked' : 'unchecked' }
@@ -22,9 +22,9 @@ const MultipleRadioComponent:FC<MultipleRadioComponentProps> = ({choix, valueSta
         style={
           valueState===undefined || valueState !== choix 
           ? 
-          {fontSize: 20, color:"grey"} 
+          {fontSize: 20, color:"grey", flexWrap:"wrap", width:"100%", paddingRight:10} 
           : 
-          {fontSize: 20, color:"green", fontWeight:"bold"}
+          {fontSize: 20, color:"green", fontWeight:"bold", flexWrap:"wrap", width:"100%"}
         }
       >
         {choix}

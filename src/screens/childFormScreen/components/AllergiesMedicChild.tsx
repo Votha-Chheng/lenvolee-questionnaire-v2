@@ -1,4 +1,4 @@
-import { View } from 'react-native'
+import { View, useWindowDimensions} from 'react-native'
 import React, { FC } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { RootState } from '../../../store/store'
@@ -11,6 +11,8 @@ const AllergiesMedicChild: FC = () => {
   const {allergiesMedicamentsOuiNon, listeAllergiesMedicaments} = useSelector((state: RootState) => state.etatDeSanteChild)
 
   const dispatch = useDispatch()
+
+  const { width } = useWindowDimensions()
 
   return (
     <View>
@@ -37,7 +39,7 @@ const AllergiesMedicChild: FC = () => {
           reducerFromStore={getListeAllergiesMedicaments} 
           extraItem="À quel(s) médicament est-il allergique ?" 
           placeHolder="Écrivez ici le médicament..."
-          width={450}
+          width={width <500 ? 200: 450}
         />
       }
     </View>
