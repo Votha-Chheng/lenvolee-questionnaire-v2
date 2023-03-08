@@ -112,6 +112,7 @@ const ValidationQuestionnaire: FC = () => {
         delayLongPress={8000}
       >
         <Button 
+          buttonColor='green'
           style={globalStyles.validationButton} 
           labelStyle={{fontSize:17, flex:1, justifyContent:"center", paddingHorizontal:0, color:"#fff"}}
           onPress={()=>insertFichePatientInAdultPatientsList()} 

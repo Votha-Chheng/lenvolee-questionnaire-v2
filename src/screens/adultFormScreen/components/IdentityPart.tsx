@@ -49,7 +49,8 @@ const IdentityPart: FC = () => {
             selectedValue = {dr}
             onValueChange = {(itemValue, itemIndex)=> dispatch(getDr(itemValue)) }
             mode="dropdown"
-            style={{transform:[{scaleX: 1.05}, {scaleY:1.1}, {translateX:5}]}}
+            style={{transform:[{scaleX: 1.05}, {scaleY:1.1}, {translateX:5}], color:"black"}}
+            
           >
             <Picker.Item label="Dr. Sylvie MA-FRANCIN" value="Sylvie MA-FRANCIN"/>
           </Picker>

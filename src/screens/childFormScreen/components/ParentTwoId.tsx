@@ -22,14 +22,11 @@ const ParentTwoId: FC = () => {
           <BouncyCheckbox
             text="Cochez cette case si vous n'êtes pas en mesure de fournir les informations du second parent"
             size={35}
-            style={{}}
             fillColor="green"
             unfillColor="#FFFFFF"
-            iconStyle={{ borderColor: "red" }}
             innerIconStyle={{ borderWidth: 2 }}
+            textContainerStyle={{width:"85%"}}
             textStyle={{
-              fontFamily: "JosefinSans-Regular", 
-              width:"82.5%", 
               textDecorationLine: "none", 
               color: `${parentTwo === "Je ne suis pas en mesure de donner les informations relatives au second parent de l'enfant." ? "green": "black"}`
             }}

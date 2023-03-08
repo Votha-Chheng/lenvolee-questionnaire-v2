@@ -34,7 +34,6 @@ const IdentityChild:FC = () => {
     nom,
     prenom,
     dateDeNaissance,
-    //telEnfant,
     adresse,
     codePostal,
     ville,

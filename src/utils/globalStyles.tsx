@@ -15,7 +15,8 @@ export const globalStyles = StyleSheet.create({
     fontWeight:"bold",
     marginBottom:10,
     paddingRight:10,
-    letterSpacing:0.75
+    letterSpacing:0.75,
+    color: "black"
   },
   flexRow : {
     flexDirection:"row", 
@@ -36,9 +37,11 @@ export const globalStyles = StyleSheet.create({
     letterSpacing : 1.25,
     fontSize:17,
     textAlign:"justify",
-    lineHeight : 25
+    lineHeight : 25,
+    color:"gray"
   },
   texteMiddle: {
+    color:"gray",
     paddingBottom: 10,
     paddingTop:0,
     paddingHorizontal: 25,

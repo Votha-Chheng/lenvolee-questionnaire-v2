@@ -106,13 +106,13 @@ const ListFichesPatients: FC = () => {
                   buttonColor='red'
                   style={{ marginBottom:5}}
                   disabled={loading}
-                  //loading={loading}
                   onPress={()=> createTwoButtonAlert(fiche.id)}
                 >
                   Supprimer la fiche
                 </Button>
                 <Button
                   mode='contained'
+                  buttonColor='blue'
                   style={{marginTop:5}}
                   onPress={()=> exportPDF(fiche.id, fiche.isAdult, fiche.nom ?? "Nom", fiche.prenom?? 'Prenom')}
                   disabled={loading}
@@ -125,7 +125,7 @@ const ListFichesPatients: FC = () => {
           ))
           : 
           <View style={{justifyContent:"center", alignItems:"center", height:"75%", width:"100%"}}>
-            <Text style={{fontFamily:"FrankRuhlLibre_400Regular", fontSize:25, color:"black"}}>Aucun patient dans la base de données.</Text> 
+            <Text style={{fontFamily:"FrankRuhlLibre-Regular", fontSize:25, color:"black"}}>Aucun patient dans la base de données.</Text> 
           </View>
         }
 

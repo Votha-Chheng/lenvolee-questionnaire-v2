@@ -36,7 +36,7 @@ const GenreComponentForTablet:FC = () => {
 
   return (
     <View style={{flexDirection:"row", marginTop : 15}}>
-    <Text style={{fontSize:20, marginTop:7}} >&#8227;</Text>
+    <Text style={[globalStyles.label, {fontSize:20, marginTop:7}]} >&#8227; Vous êtes</Text>
     <Animated.View style={{marginVertical : 5, marginRight:10, width:125, transform : [{translateY : translation}]}}>
       <View style={{flexDirection:"row", alignItems:"center"}}>
         <RadioButton

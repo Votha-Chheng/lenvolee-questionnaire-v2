@@ -125,7 +125,7 @@ const EtatSanteBoucheChild: FC = () => {
       <View style={{marginBottom:20}}>
         <Label
           statement={habitudesChild}
-          question="Merci de cocher les habitudes qu'il peut avoir parmi les habitudes suivantes (ne rien cocher si aucune) :"
+          question="Merci de cocher les habitudes qu'il peut avoir parmi les habitudes suivantes (ne rien cocher si aucune) "
         />
         <View>
           <CheckBoxComponent title="Sucer son pouce" maladies={habitudesChild} handleChangeValues={addRadioItem} dispatcher={dispatch} reducerFromStore={getHabitudesChild} shouldBeUndefinedIfNull={false}/>

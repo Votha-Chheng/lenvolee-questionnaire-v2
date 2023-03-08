@@ -92,6 +92,7 @@ const ValidationQuestionnaireEnfant: FC = () => {
       >
         <Button 
           style={globalStyles.validationButton} 
+          buttonColor="green"
           labelStyle={{fontSize:17, flex:1, justifyContent:"center", paddingHorizontal:0, color:"#fff"}}
           onPress={()=>insertFichePatientInChildPatientsList()} 
           mode="contained" 
