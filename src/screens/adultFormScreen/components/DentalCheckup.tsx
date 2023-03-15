@@ -37,7 +37,7 @@ const DentalCheckup: FC = () => {
           statement={dateDernierExamDentaire}
         />
         <View style={[globalStyles.flexRow, {height: 70, alignItems:"center"}]}>
-        <Text style={{marginHorizontal:10, fontSize:15, marginBottom:5, fontWeight:"bold"}}>
+        <Text style={{marginHorizontal:10, fontSize:15, marginBottom:5, fontWeight:"bold", color:"black"}}>
           {dateDernierExamDentaire !== undefined ? displayDateNormal(dateDernierExamDentaire) : "Aucune date choisie"}
         </Text>
         <Button style={{marginBottom:5}} color="#2086EB" labelStyle={{fontSize:12}} onPress={()=>showDatePicker("date")} mode="contained">

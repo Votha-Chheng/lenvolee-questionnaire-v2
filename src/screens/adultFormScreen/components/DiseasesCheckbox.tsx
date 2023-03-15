@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { View, Text } from 'react-native';
+import { View, useWindowDimensions } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useDispatch, useSelector } from 'react-redux';
 import CheckBoxComponent from '../../../sharedUI/form/CheckboxComponent';
@@ -14,6 +14,7 @@ const DiseasesCheckboxes:FC = () => {
   const {maladies} = useSelector((state: RootState)=> state.medicalHistory)
 
   const dispatch = useDispatch()
+  const { width } = useWindowDimensions()
 
   const handleChangeValues = (isChecked: boolean, disease: string)=>{
     if(isChecked){
@@ -49,7 +50,7 @@ const DiseasesCheckboxes:FC = () => {
           <CheckBoxComponent title="Pertes de connaissance" maladies={maladies} handleChangeValues={handleChangeValues} dispatcher={dispatch} reducerFromStore={getMaladies}/>
           <CheckBoxComponent title="Troubles des reins" maladies={maladies} handleChangeValues={handleChangeValues} dispatcher={dispatch} reducerFromStore={getMaladies}/>
         </View>
-        <View style={{marginLeft:15}}>
+        <View style={{marginLeft:`${width>500? 15: 0} `}}>
           <CheckBoxComponent title="Lésions cardiaques congénitales " maladies={maladies} handleChangeValues={handleChangeValues} dispatcher={dispatch} reducerFromStore={getMaladies}/> 
           <CheckBoxComponent title="Problèmes circulatoires" maladies={maladies} handleChangeValues={handleChangeValues} dispatcher={dispatch} reducerFromStore={getMaladies}/>
           <CheckBoxComponent title="Tumeur maligne" handleChangeValues={handleChangeValues} maladies={maladies}  dispatcher={dispatch} reducerFromStore={getMaladies}/>

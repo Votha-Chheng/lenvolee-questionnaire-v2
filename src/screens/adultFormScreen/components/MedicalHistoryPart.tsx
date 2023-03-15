@@ -43,7 +43,7 @@ const MedicalHistoryPart:FC = () => {
           statement={medecinTraitant}
         />
         <View style={[globalStyles.flexRow, {marginLeft:15}]}>
-          <Text style={{fontSize:20, fontWeight:"bold", marginRight:5}}>Dr.</Text>
+          <Text style={{fontSize:20, fontWeight:"bold", marginRight:5, color:"black"}}>Dr.</Text>
           <TextInput 
             onChangeText={(name)=>onValidateLengthInput(0, dispatch, getMedecinTraitant, name)}
             style={[globalStyles.input, {borderColor:`${medecinTraitant===undefined? "grey":"green"}`, width:300}]} 
@@ -57,7 +57,7 @@ const MedicalHistoryPart:FC = () => {
           statement={dateDernierExamen}
         />
         <View style={[globalStyles.flexRow, {marginLeft: 15}]}>
-          <Button style={{marginBottom:5}} color="#2086EB" labelStyle={{fontSize:12}} onPress={()=>showLastExamDatePicker("date")} mode="contained">
+          <Button style={{marginBottom:5}} buttonColor="#2086EB" labelStyle={{fontSize:12}} onPress={()=>showLastExamDatePicker("date")} mode="contained">
             Choisir date
           </Button>
           <Text style={{marginHorizontal:10, fontSize:17.5, marginBottom:5, fontWeight:"bold", color:`${dateDernierExamen !== undefined ? "green" : "red" }`}}>

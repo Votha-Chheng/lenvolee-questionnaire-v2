@@ -39,7 +39,7 @@ const SensationsProtheses: FC = () => {
           {fontSize: 20, color:"green", fontWeight:"bold"}
         }
       >
-        Je ne ressens aucune gêne avec mes prothèses.
+        Je ne ressens aucune gêne.
       </Text>
     </View>
     <View style={[globalStyles.flexRow, {marginBottom:0}]}>

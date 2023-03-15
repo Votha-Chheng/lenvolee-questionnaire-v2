@@ -1,4 +1,4 @@
-import { View } from 'react-native'
+import { useWindowDimensions, View } from 'react-native'
 import React, { FC } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { RootState } from '../../../store/store'
@@ -27,7 +27,6 @@ import AddText from '../../../sharedUI/form/AddText'
 
 
 const DentsInfo: FC = () => {
-
   const {
     dentsExtraites, 
     causesExtraction, 
@@ -41,6 +40,7 @@ const DentsInfo: FC = () => {
   } = useSelector((state: RootState) => state.dentsInfo)
 
   const dispatch = useDispatch()
+  const { width } = useWindowDimensions()
 
   return (
     <View style={globalStyles.container}>
@@ -200,7 +200,7 @@ const DentsInfo: FC = () => {
               <CheckBoxComponent title="Au froid" maladies={listeSensibilite} handleChangeValues={addRadioItem} dispatcher={dispatch} reducerFromStore={getListeSensibilite} />
               <CheckBoxComponent title="Au sucre" maladies={listeSensibilite} handleChangeValues={addRadioItem} dispatcher={dispatch} reducerFromStore={getListeSensibilite} />
             </View>
-            <View style={{marginLeft:40}}>
+            <View style={{marginLeft:`${width>500 ? 40:0}`}}>
               <CheckBoxComponent title="Au goût acide" maladies={listeSensibilite} handleChangeValues={addRadioItem} dispatcher={dispatch} reducerFromStore={getListeSensibilite} />
               <CheckBoxComponent title="À la mastication" maladies={listeSensibilite} handleChangeValues={addRadioItem} dispatcher={dispatch} reducerFromStore={getListeSensibilite} />
             </View>
