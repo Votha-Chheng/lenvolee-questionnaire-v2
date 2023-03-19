@@ -34,8 +34,6 @@ const HomeScreen:FC = () => {
   const [motDePasseInput, setMotdePasseInput] = useState<string>("")
 
   const { password } = useSelector((state: RootState)=> state.password)
-  const { listeFichesPatient } = useSelector((state: RootState)=> state.listeFichesPatient)
-
   const navigation = useNavigation<HomeScreenProps>()
 
   const dispatch = useDispatch()

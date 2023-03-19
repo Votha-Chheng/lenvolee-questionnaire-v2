@@ -1,15 +1,12 @@
-import { StyleSheet, Text, View, Alert, useWindowDimensions } from 'react-native'
+import { StyleSheet, Text, View, Alert, useWindowDimensions, FlatList } from 'react-native'
 import React, { FC, useState } from 'react'
-import { Button } from 'react-native-paper'
 import FileViewer from "react-native-file-viewer";
 import RNHTMLtoPDF from 'react-native-html-to-pdf';
 import { getHTMLAdultForm, getHTMLChildForm } from '../../utils/getHtmlForm'
-import { displayDateNormal } from '../../utils/displayDateDMA'
-import { globalStyles } from '../../utils/globalStyles'
 import { useDispatch, useSelector } from 'react-redux'
 import { RootState } from '../../store/store'
 import { FicheReponses } from '../../classes/FicheReponses'
-import { deleteSingleFichePatientById } from '../../store/listePatients/listefichesPatients';
+import PatientCard from './components/PatientCard';
 
 const ListFichesPatients: FC = () => {
 
@@ -17,9 +14,6 @@ const ListFichesPatients: FC = () => {
 
   const [loading, setLoading] = useState<boolean>(false)
   const [loadingExport, setLoadingExport] = useState<boolean>(false)
-
-  const dispatch = useDispatch()
-  const { width } = useWindowDimensions()
 
   const listSortedByDate = (list: any[])=> {
     const temp = [...list]
@@ -54,82 +48,21 @@ const ListFichesPatients: FC = () => {
     }
   }
 
-  const deletePatientFicheFromDB = (id: number): void=> {
-    dispatch(deleteSingleFichePatientById(id))
-  }
-
-  const createTwoButtonAlert = (id: number) => {
-    Alert.alert(
-      "Êtes-vous sûr de vouloir supprimer cette fiche ?",
-      "Pensez à exporter cette fiche avant de la supprimer.",
-      [
-        {
-          text: "Annuler",
-          style: "cancel"
-        },
-        { 
-          text: "Supprimer définitivement",
-          style: "destructive", 
-          onPress: ()=> deletePatientFicheFromDB(id)
-        },
-      ],
-      {
-        cancelable: true
-      }
-    );
-  }
-
   return (
-    <View style={{maxWidth:"100%"}}>
-      <Text style={{fontSize:30, color: "black", fontWeight:'bold', textAlign:"center", marginVertical:30}}>
-        Liste des Fiches Patients
-      </Text>
-      <View style={{alignItems:'center'}}>
-      {
-        listeFichesPatient!==null && listeFichesPatient!== undefined && listeFichesPatient.length>0
-        ?
-        listSortedByDate(listeFichesPatient).map((fiche: FicheReponses, index: number)=>(
-          <View 
-            key={index.toString()}
-            style={[globalStyles.flexRow, {marginBottom:20, maxHeight:120}]}
-          >
-            <View style={[styles.bandeau,{backgroundColor:`${index%2 === 0 ? "#4b8095" : "#dbe9ee"}`, alignItems:"center"}]}>
-              <Text style={[styles.nom, { color:`${index%2===0 ? "#fff":"#4b8095"}`}]}>
-                {fiche.nom ? fiche.nom.toString().toUpperCase() : "Nom indéfini"} {fiche.prenom ? fiche.prenom?.toString() : 'Prénom indefini'}
-              </Text>
-              <Text style={{marginHorizontal:5, color:`${index%2===0 ? "#fff":"#4b8095"}`, fontSize:20}}>
-                venu le {fiche.dateRdv ? displayDateNormal(new Date(fiche.dateRdv).toDateString()) : "indéfini"}
-              </Text>
-            </View>
-            <View style={width>500 ? {}: globalStyles.flexRow }>
-              <Button
-                mode='contained'
-                buttonColor='red'
-                style={{ marginBottom:5}}
-                disabled={loading}
-                onPress={()=> createTwoButtonAlert(fiche.id)}
-              >
-                Supprimer la fiche
-              </Button>
-              <Button
-                mode='contained'
-                buttonColor='blue'
-                style={{marginTop:5}}
-                onPress={()=> exportPDF(fiche.id, fiche.isAdult, fiche.nom ?? "Nom", fiche.prenom?? 'Prenom')}
-                disabled={loading}
-                loading={loadingExport}
-              >
-                Exporter le PDF
-              </Button>
-            </View>
-          </View>
-        ))
-        : 
-        <View style={{justifyContent:"center", alignItems:"center", height:"75%", width:"100%"}}>
-          <Text style={{fontFamily:"FrankRuhlLibre-Regular", fontSize:25, color:"black"}}>Aucun patient dans la base de données.</Text> 
-        </View>
-      }
-      </View>
+    <View style={{paddingHorizontal:10}}>
+      <FlatList
+        data={listSortedByDate(listeFichesPatient)}
+        keyExtractor={(item: FicheReponses) => item.id.toString()}
+        renderItem = {({item, index}) => (
+          <PatientCard key={index.toString()} index={index} fiche={item}  loading={loading} exportPDF={exportPDF} loadingExport={loadingExport}/>
+        )}
+        ListHeaderComponent={
+          <Text style={{fontSize:30, color: "black", fontWeight:'bold', textAlign:"center", marginVertical:30}}>
+            Liste des Fiches Patients
+          </Text>
+        }
+        ListEmptyComponent={<Text style={{fontFamily:"FrankRuhlLibre-Regular", fontSize:25, color:"black"}}>Aucun patient dans la base de données.</Text>}
+      />
     </View>
   )
 }

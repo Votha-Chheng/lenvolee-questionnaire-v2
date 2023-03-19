@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { MedicalHistory } from "../../classes/adult/MedicalHistory";
+import { MedicalInfos } from "../../classes/adult/MedicalInfos";
 
-const initialState: MedicalHistory = {
+const initialState: MedicalInfos = {
   medecinTraitant : undefined, //
   dateDernierExamen:undefined, //
   changementEtatSante:undefined, //
@@ -21,8 +21,8 @@ const initialState: MedicalHistory = {
   medicOsteoporose :[],
 }
 
-const medicalHistorySlice = createSlice({
-  name: 'medicalHistory',
+const medicalInfosSlice = createSlice({
+  name: 'medicalInfos',
   initialState,
   reducers: {
     resetMedicalHistory: (state) => {
@@ -101,6 +101,6 @@ export const {
   getPilule, 
   getOsteoporose,
   getMedicOsteoporose} 
-  = medicalHistorySlice.actions
+  = medicalInfosSlice.actions
 
-export default medicalHistorySlice.reducer
+export default medicalInfosSlice.reducer

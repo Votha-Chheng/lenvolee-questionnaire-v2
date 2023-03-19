@@ -1,4 +1,4 @@
-import { Text, View } from 'react-native';
+import { Text, useWindowDimensions, View } from 'react-native';
 import React, { FC } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../../store/store';
@@ -17,12 +17,12 @@ import Osteoporose from './Osteoporose';
 
 const MedicalHistoryEnd: FC = () => {
   
-  const { saignementInterventionAccident, traitementRadiations, priseMedicamentActuelle, medicamentsActuels } = useSelector((state: RootState) => state.medicalHistory)
+  const { saignementInterventionAccident, traitementRadiations, priseMedicamentActuelle, medicamentsActuels } = useSelector((state: RootState) => state.medicalInfos)
 
   const {genre} = useSelector((state: RootState) => state.identity)
 
   const dispatch = useDispatch()
-
+  const { width } = useWindowDimensions()
 
   return (
     <View style={[globalStyles.container, {marginTop:20}]}>
@@ -75,7 +75,7 @@ const MedicalHistoryEnd: FC = () => {
               <CheckBoxComponent title="Tranquillisants" maladies={medicamentsActuels} handleChangeValues={addRadioItem} dispatcher={dispatch} reducerFromStore={getMedicamentsActuels}/>
               <CheckBoxComponent title="Aspirine" maladies={medicamentsActuels} handleChangeValues={addRadioItem} dispatcher={dispatch} reducerFromStore={getMedicamentsActuels}/>    
             </View>
-            <View style={{marginHorizontal:25}}>
+            <View style={{marginHorizontal: width> 500 ? 25 : 0}}>
               <CheckBoxComponent title="Traitement pour tension artérielle" maladies={medicamentsActuels} handleChangeValues={addRadioItem} dispatcher={dispatch} reducerFromStore={getMedicamentsActuels}/>
               <CheckBoxComponent title="Cortisone" maladies={medicamentsActuels} handleChangeValues={addRadioItem} dispatcher={dispatch} reducerFromStore={getMedicamentsActuels}/>
               <CheckBoxComponent title="Insuline" maladies={medicamentsActuels} handleChangeValues={addRadioItem} dispatcher={dispatch} reducerFromStore={getMedicamentsActuels}/>
@@ -83,9 +83,6 @@ const MedicalHistoryEnd: FC = () => {
           </View>
           
           <ComponentAutres stateArray={medicamentsActuels} reducerFromStore={getMedicamentsActuels} extraItem="Autre médicament" placeHolder='Médicament' />
-          {/* <Text>
-            {medicamentsActuels !== undefined && medicamentsActuels.toString()}
-          </Text> */}
         </View>  
       }
       <AllergiesPart/>

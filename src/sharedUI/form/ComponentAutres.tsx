@@ -1,4 +1,4 @@
-import { ScrollView, StyleSheet, Text, TextInput, View, TouchableOpacity} from 'react-native';
+import { ScrollView, StyleSheet, Text, TextInput, View, TouchableOpacity, useWindowDimensions} from 'react-native';
 import { FC, useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { Button } from 'react-native-paper';
@@ -22,8 +22,8 @@ const ComponentAutres: FC<ComponentAutresProps> = ({stateArray, reducerFromStore
   const [deleteMode, setDeleteMode] = useState(false)
   const [extra, setExtra] = useState<string[]>([])
 
-
   const dispatch = useDispatch()
+  const window = useWindowDimensions()
 
   useEffect(()=>{
     extra.length>0 ? setShowDelete(true) : setShowDelete(false)
@@ -107,29 +107,33 @@ const ComponentAutres: FC<ComponentAutresProps> = ({stateArray, reducerFromStore
       <View style={globalStyles.flexRow}>
         {
           showNewValues ?
-          <View style={{flexDirection:'row'}}>
+          <View style={{flexDirection:window.width>500? 'row':"column"}}>
             <TextInput
               style={[globalStyles.input, {width, height:50, marginRight:10}]}  
               onChangeText={(text)=>setInputValue(text.trim())}
               placeholder={placeHolder}
+              placeholderTextColor="grey"
             />
-            <Button
-              mode="contained"
-              buttonColor="orange"
-              onPress={()=>setShowNewValues(false)}
-              style={{marginHorizontal:5}}
-            >
-              Annuler
-            </Button>
-            <Button
-              mode="contained"
-              buttonColor={inputValue.length<1? "#e5e2de" :"green"}
-              labelStyle={{color:  "whitesmoke"}}
-              onPress={()=>validateNewElement()}
-              style={{marginHorizontal:5}}
-            >
-              Valider
-            </Button>
+            <View style={{flexDirection:'row', marginTop: window.width>500 ? 0 : 10}}>
+              <Button
+                mode="contained"
+                buttonColor="orange"
+                onPress={()=>setShowNewValues(false)}
+                style={{marginHorizontal:5}}
+              >
+                Annuler
+              </Button>
+              <Button
+                mode="contained"
+                buttonColor={inputValue.length<1? "#e5e2de" :"green"}
+                labelStyle={{color:  "whitesmoke"}}
+                onPress={()=>validateNewElement()}
+                style={{marginHorizontal:5}}
+              >
+                Valider
+              </Button>
+            </View>
+            
           </View>
           :
           <View style={[globalStyles.flexRow, {marginBottom:0}]}>

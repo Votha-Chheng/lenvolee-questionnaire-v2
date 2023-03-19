@@ -20,7 +20,7 @@ const IdentityPart: FC = () => {
 
   const dispatch = useDispatch()
 
-  const { height, width } = useWindowDimensions()
+  const { width } = useWindowDimensions()
 
   const onValidateNumber = (text: string): void=>{
     if(text.startsWith("0") && text.length === 10){

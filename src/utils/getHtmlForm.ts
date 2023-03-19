@@ -518,7 +518,7 @@ export const getHTMLChildForm = (value:any) => {
               }
             </li>
             <li>
-              <span style="font-weight: bold;">A-t-il déjà fait des radios dentaire : </span> <span style='color:${value.radiosDentaires === true ? "black": "red"}' >${returnOuiNon(value.radiosDentaires)} </span>
+              <span style="font-weight: bold;">A-t-il déjà fait des radios dentaires : </span> <span style='color:${value.radiosDentaires === true ? "black": "red"}' >${returnOuiNon(value.radiosDentaires)} </span>
             </li>
             <li>
               <span style="font-weight: bold;">Première visite dans ce cabinet : </span> <span>${returnOuiNon(value.firstVisiteCabinet)}</span>
@@ -678,7 +678,7 @@ export const getHTMLChildForm = (value:any) => {
                   ${
                     value.sodasListe.map((maladie:Boisson) => (
                       `<span>
-                        || ${maladie.boisson} tous/toutes les ${maladie.frequence} an(s) 
+                        || ${maladie.boisson} tous/toutes les ${maladie.frequence} 
                       </span>`
                     ))
                   }
@@ -698,7 +698,7 @@ export const getHTMLChildForm = (value:any) => {
               <span style="color:${value.dentEnleveOuiNon===true ? 'red':'black'}">${returnOuiNon(value.dentEnleveOuiNon)}</span>
             </li>
             <li>
-              <span style="font-weight: bold;">Dent(s) cassé(s) : </span>
+              <span style="font-weight: bold;">Dent(s) cassée(s) : </span>
               <span style="color:${value.dentCasseOuiNon===true ? 'red':'black'}">${returnOuiNon(value.dentCasseOuiNon)}</span>
               ${
                 value.dentCasseOuiNon===true ?

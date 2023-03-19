@@ -20,7 +20,7 @@ const MedicalHistoryPart:FC = () => {
     dateDernierExamen,
     changementEtatSante
 
-  } = useSelector((state: RootState) => state.medicalHistory)
+  } = useSelector((state: RootState) => state.medicalInfos)
 
   const dispatch = useDispatch()
 

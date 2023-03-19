@@ -10,7 +10,7 @@ import { globalStyles } from '../../../utils/globalStyles'
 
 const SmokerPart: FC = () => {
 
-  const {fumeur, cigarettesParJour} = useSelector(((state: RootState) => state.medicalHistory))
+  const {fumeur, cigarettesParJour} = useSelector(((state: RootState) => state.medicalInfos))
 
   const dispatch = useDispatch()
 

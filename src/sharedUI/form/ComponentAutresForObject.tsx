@@ -56,7 +56,6 @@ const ComponentAutresForObject:FC<ComponentAutresForObjectProps> = ({
   }
 
   const deleteNomMedicFrequence = (event: any, stateArray:Object[], reducerFromStore: Function)=>{
-
     const stringToClick = event._dispatchInstances.memoizedProps.children[0].props.children
     let tempState = stateArray.filter((disease: any) => !stringToClick.includes(disease[valueForFilter]))
 
@@ -103,6 +102,7 @@ const ComponentAutresForObject:FC<ComponentAutresForObjectProps> = ({
         <View>
           <View style={[globalStyles.flexRow, {alignItems:"center"}]}>
             <TextInput
+              placeholderTextColor="grey"
               style={[globalStyles.input, {width:widthFirstInput, height:50, marginRight:10, marginTop:5, borderColor:`${inputNomMedicament.length>0 ? "gray": "red"}`}]}  
               onChangeText={(text)=>{
                 if(text.length>1){
@@ -116,6 +116,7 @@ const ComponentAutresForObject:FC<ComponentAutresForObjectProps> = ({
             />
             <Text style={{fontWeight:"bold"}}>{liaison} </Text>
             <TextInput
+              placeholderTextColor="grey"
               autoCapitalize='none'
               style={[globalStyles.input, {width:widthSecondInput, height:50, marginRight:10, marginTop:5, borderColor:`${inputFrequence.length>0 ? "gray": "red"}`}]}  
               keyboardType={keyboardForInput}
@@ -137,7 +138,7 @@ const ComponentAutresForObject:FC<ComponentAutresForObjectProps> = ({
           <View style={globalStyles.flexRow}>
             <Button
               mode="contained"
-              color="orange"
+              buttonColor="orange"
               onPress={()=>setEnterNewValue(false)}
               style={{marginHorizontal:5}}
             >
@@ -145,7 +146,7 @@ const ComponentAutresForObject:FC<ComponentAutresForObjectProps> = ({
             </Button>
             <Button
               mode="contained"
-              color={inputFrequence.length<1 || inputNomMedicament.length<1? "#e5e2de" :"green"}
+              buttonColor={inputFrequence.length<1 || inputNomMedicament.length<1? "#e5e2de" :"green"}
               labelStyle={{color:  "whitesmoke"}}
               onPress={()=>handleNomMedicFrequenceValidation()}
               style={{marginHorizontal:5}}
@@ -157,18 +158,18 @@ const ComponentAutresForObject:FC<ComponentAutresForObjectProps> = ({
         </View>
         :
         <View style={globalStyles.flexRow}>
-          <Button mode='contained' color='#1D9BF0' style={{width:150, marginHorizontal:5}} onPress={()=>setEnterNewValue(true)} disabled={deleteMode === false ? false : true}>
+          <Button mode='contained' buttonColor='#1D9BF0' style={{width:150, marginHorizontal:5}} onPress={()=>setEnterNewValue(true)} disabled={deleteMode === false ? false : true}>
             AJOUTER
           </Button>
 
           {
             deleteMode === false 
             ?
-            <Button mode='contained' color='red' style={{width:150, marginHorizontal:5}} onPress={()=>setDeleteMode(true)} disabled={arrayListe !== undefined && deleteMode === false ? false : true}>
+            <Button mode='contained' buttonColor='red' style={{width:150, marginHorizontal:5}} onPress={()=>setDeleteMode(true)} disabled={arrayListe !== undefined && deleteMode === false ? false : true}>
               Supprimer
             </Button>
             :
-            <Button mode='contained' color='orange' style={{width:250, marginHorizontal:5}} onPress={()=>setDeleteMode(false)} >
+            <Button mode='contained' buttonColor='orange' style={{width:250, marginHorizontal:5}} onPress={()=>setDeleteMode(false)} >
               Fin suppression
             </Button>
           }  

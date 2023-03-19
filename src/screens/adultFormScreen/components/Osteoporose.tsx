@@ -9,7 +9,7 @@ import CheckBoxComponent from '../../../sharedUI/form/CheckboxComponent'
 import { addRadioItem } from '../../../utils/addRadioItem'
 
 const Osteoporose: FC = () => {
-  const {osteoporose, medicOsteoporose} = useSelector((state: RootState) => state.medicalHistory)
+  const {osteoporose, medicOsteoporose} = useSelector((state: RootState) => state.medicalInfos)
 
   const dispatch = useDispatch()
 

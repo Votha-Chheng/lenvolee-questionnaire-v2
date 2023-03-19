@@ -1,5 +1,6 @@
 import { FC } from "react";
 import { StyleSheet, Text } from "react-native";
+import { globalStyles } from "../../utils/globalStyles";
 
 export type TitlesProps = {
   title: string
@@ -7,7 +8,7 @@ export type TitlesProps = {
 
 const Titles: FC<TitlesProps> = ({title}: TitlesProps) => {
   return (
-    <Text style={styles.titleStyle}>
+    <Text style={globalStyles.titleStyle}>
         {title}
     </Text>
   );
@@ -15,18 +16,7 @@ const Titles: FC<TitlesProps> = ({title}: TitlesProps) => {
 
 
 const styles = StyleSheet.create({
-  titleStyle: {
-    fontSize: 25,
-    borderWidth: 2,
-    paddingTop: 7.5,
-    paddingBottom: 5,
-    paddingRight : 20,
-    paddingLeft : 25,
-    textAlign: "center",
-    fontFamily: "FrankRuhlLibre-Medium",
-    color: '#363c51',
-    backgroundColor:"#D4AB7C"
-  },
+  
 });
 
 export default Titles;

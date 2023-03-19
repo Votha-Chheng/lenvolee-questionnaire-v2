@@ -10,7 +10,7 @@ import { globalStyles } from '../../../utils/globalStyles'
 
 const PregnantPart: FC = () => {
 
-  const {enceinte, moisDeGrossesse, pilule, osteoporose, medicOsteoporose} = useSelector((state: RootState) => state.medicalHistory)
+  const {enceinte, moisDeGrossesse, pilule} = useSelector((state: RootState) => state.medicalInfos)
 
   const dispatch = useDispatch()
 

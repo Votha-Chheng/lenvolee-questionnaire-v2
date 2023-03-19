@@ -16,7 +16,6 @@ const ConsultationEnfant: FC = () => {
 
   const dispatch = useDispatch()
   
-
   return (
     <View style={globalStyles.container}>
       <LabelInputForText statement={motif} question="Quel est le motif de la consultation pour l'enfant ?" reducerFromStore={getMotif} flexRow={false} minLengthForInput={0} width={500} />

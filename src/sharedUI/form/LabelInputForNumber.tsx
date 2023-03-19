@@ -8,7 +8,6 @@ export type LabelInputForNumberProps = {
   question: string
   statement: any
   maxLength: number
-
   width?: number
   onHandleChangeNumber: Function
 }

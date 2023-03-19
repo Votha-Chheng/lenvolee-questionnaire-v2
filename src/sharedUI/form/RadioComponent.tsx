@@ -4,7 +4,7 @@ import { RadioButton } from 'react-native-paper';
 import { globalStyles } from '../../utils/globalStyles';
 
 
-export type RadioComponentProps = {
+type RadioComponentProps = {
   valueState: boolean | undefined
   setValueToTrue: Function,
   setValueToFalse: Function

@@ -28,6 +28,7 @@ const LabelInputForText:FC<LabelInputForTextProps> = ({statement, question, redu
       />
       <TextInput 
         onChangeText={(name)=>onValidateLengthInput(minLengthForInput, dispatch, reducerFromStore, name)}
+        placeholderTextColor="grey"
         style={[globalStyles.input, {borderColor:`${statement===undefined? "red":"green"}`, backgroundColor:"whitesmoke", width}]}  
       />
     </View>

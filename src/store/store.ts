@@ -1,7 +1,7 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit'
 import { useDispatch } from 'react-redux'
 import identityReducer from './adultState/identity'
-import medicalHistoryReducer from './adultState/medicalInfo'
+import medicalInfosReducer from './adultState/medicalInfo'
 import consultationInfoReducer from './adultState/consultationInfo'
 import gencivesReducer from './adultState/gencives'
 import dentsInfosReducer from './adultState/dentsInfo'
@@ -22,7 +22,7 @@ import {persistReducer} from 'redux-persist'
 
 const reducers = combineReducers({
   identity : identityReducer,
-  medicalHistory : medicalHistoryReducer,
+  medicalInfos : medicalInfosReducer,
   consultationInfo : consultationInfoReducer,
   gencivesInfo : gencivesReducer,
   dentsInfo : dentsInfosReducer,

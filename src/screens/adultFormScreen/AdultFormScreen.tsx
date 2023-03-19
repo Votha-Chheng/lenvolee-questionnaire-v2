@@ -18,7 +18,6 @@ import Titles from '../../sharedUI/layout/Titles'
 import Gencives from './components/Gencives'
 import { ActivityIndicator } from 'react-native-paper'
 
-
 const AdultFormScreen: FC = () => {
   const [loading, setLoading] = useState<boolean>(false)
 

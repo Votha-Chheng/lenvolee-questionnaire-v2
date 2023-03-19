@@ -10,6 +10,18 @@ export const globalStyles = StyleSheet.create({
     paddingHorizontal:10,
     paddingTop: 10
   },
+  titleStyle: {
+    fontSize: 25,
+    borderWidth: 2,
+    paddingTop: 7.5,
+    paddingBottom: 5,
+    paddingRight : 20,
+    paddingLeft : 25,
+    textAlign: "center",
+    fontFamily: "FrankRuhlLibre-Medium",
+    color: '#363c51',
+    backgroundColor:"#D4AB7C"
+  },
   label : {
     fontSize : 20,
     fontWeight:"bold",
@@ -29,7 +41,8 @@ export const globalStyles = StyleSheet.create({
     fontSize:20, 
     paddingHorizontal:5, 
     marginLeft:7.5, 
-    borderWidth:1
+    borderWidth:1, 
+    color:"black"
   },
   texte: {
     paddingVertical: 10,
@@ -73,5 +86,19 @@ export const globalStyles = StyleSheet.create({
   homeInputContainer: {
     width:"100%",
     marginVertical: 15
+  },
+  key: {
+    fontSize : 16,
+    fontFamily:"Roboto-Bold",
+    paddingLeft:10,
+    color: "black",
+    maxWidth:"100%"
+  },
+  value: {
+    fontSize : 16,
+    paddingLeft:10,
+    letterSpacing:0.75,
+    fontFamily:"Roboto-Light",
+    color: "black"
   }
 })

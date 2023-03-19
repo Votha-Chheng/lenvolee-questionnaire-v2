@@ -11,7 +11,7 @@ import { globalStyles } from '../../../utils/globalStyles';
 
 const DiseasesCheckboxes:FC = () => {
 
-  const {maladies} = useSelector((state: RootState)=> state.medicalHistory)
+  const {maladies} = useSelector((state: RootState)=> state.medicalInfos)
 
   const dispatch = useDispatch()
   const { width } = useWindowDimensions()
@@ -50,7 +50,7 @@ const DiseasesCheckboxes:FC = () => {
           <CheckBoxComponent title="Pertes de connaissance" maladies={maladies} handleChangeValues={handleChangeValues} dispatcher={dispatch} reducerFromStore={getMaladies}/>
           <CheckBoxComponent title="Troubles des reins" maladies={maladies} handleChangeValues={handleChangeValues} dispatcher={dispatch} reducerFromStore={getMaladies}/>
         </View>
-        <View style={{marginLeft:`${width>500? 15: 0} `}}>
+        <View style={{marginLeft: width>500? 15: 0}}>
           <CheckBoxComponent title="Lésions cardiaques congénitales " maladies={maladies} handleChangeValues={handleChangeValues} dispatcher={dispatch} reducerFromStore={getMaladies}/> 
           <CheckBoxComponent title="Problèmes circulatoires" maladies={maladies} handleChangeValues={handleChangeValues} dispatcher={dispatch} reducerFromStore={getMaladies}/>
           <CheckBoxComponent title="Tumeur maligne" handleChangeValues={handleChangeValues} maladies={maladies}  dispatcher={dispatch} reducerFromStore={getMaladies}/>
