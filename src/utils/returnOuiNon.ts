@@ -1,7 +1,9 @@
-export const returnOuiNon = (statement: boolean)=>{
+export const returnOuiNon = (statement: boolean): string=>{
   if(statement===true){
     return "OUI"
-  } else {
-    return "NON"
+  } 
+  if(statement===false){
+    return "OUI"
   }
+  return "Pas de réponse"
 }
