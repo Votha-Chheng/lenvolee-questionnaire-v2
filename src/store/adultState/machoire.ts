@@ -4,7 +4,7 @@ import { MachoireInfos } from "../../classes/adult/MachoireInfos"
 const initialState: MachoireInfos = {
   serrementGrincementDents:undefined, //
   craquementClaquementDouleurOuvertureMachoire:undefined, //
-  difficulteAvalerMacherCoteUnique:undefined, //
+  difficulteAvalerMacherCoteUnique:undefined //
 
 } 
 
@@ -13,7 +13,9 @@ const machoireSlice = createSlice ({
   initialState,
   reducers : {
     resetMachoire: (state) => {
-      state = initialState
+      state.serrementGrincementDents = undefined, //
+      state.craquementClaquementDouleurOuvertureMachoire = undefined, //
+      state.difficulteAvalerMacherCoteUnique = undefined //
     },
     getSerrementGrincementDents : (state, action) =>{
       state.serrementGrincementDents = action.payload

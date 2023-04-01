@@ -5,7 +5,7 @@ const initialState: HygieneDentaire = {
   typeBrosseADent:undefined, //
   momentsBrossageDents:undefined, //
   rythmeChangementBrosseAdent:undefined, //
-  utilisationFilDentaireBrossette:undefined, //
+  utilisationFilDentaireBrossette:undefined //
 
 } 
 
@@ -14,7 +14,11 @@ const hygieneDentaireSlice = createSlice ({
   initialState,
   reducers : {
     resetHygieneDentaire: (state) => {
-      state = initialState
+      state.typeBrosseADent = undefined, //
+      state.momentsBrossageDents = undefined, //
+      state.rythmeChangementBrosseAdent = undefined, //
+      state.utilisationFilDentaireBrossette = undefined //
+
     },
     getTypeBrosseADent : (state, action) =>{
       state.typeBrosseADent = action.payload

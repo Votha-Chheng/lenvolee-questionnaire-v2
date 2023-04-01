@@ -1,28 +1,61 @@
 import { StyleSheet, Text, View, Alert } from 'react-native'
-import React, { FC } from 'react'
+import React, { FC, useState } from 'react'
 import { globalStyles } from '../../../utils/globalStyles'
 import { FicheReponses } from '../../../classes/FicheReponses'
 import { displayDateNormal } from '../../../utils/displayDateDMA'
 import { Button } from 'react-native-paper'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
+import FileViewer from "react-native-file-viewer";
+import RNHTMLtoPDF from 'react-native-html-to-pdf';
 import { deleteSingleFichePatientById } from '../../../store/listePatients/listefichesPatients'
 import { useNavigation } from '@react-navigation/native'
 import { HomeScreenProps } from '../../homeScreen/HomeScreen'
+import { RootState } from '../../../store/store'
+import { getHTMLAdultForm, getHTMLChildForm } from '../../../utils/getHtmlForm'
 
 type PatientCardProps = {
   index: number
   fiche: FicheReponses
-  loading: boolean
-  loadingExport: boolean
-  exportPDF: Function
 }
-const PatientCard: FC<PatientCardProps> = ({ index, fiche, loading, loadingExport, exportPDF}) => {
+
+const PatientCard: FC<PatientCardProps> = ({ index, fiche}) => {
+  const [loading, setLoading] = useState<boolean>(false)
+  const [loadingExport, setLoadingExport] = useState<boolean>(false)
+
+  const { listeFichesPatient } = useSelector((state: RootState)=> state.listeFichesPatient )
 
   const dispatch = useDispatch()
   const navigation = useNavigation<HomeScreenProps>()
 
   const deletePatientFicheFromDB = (id: number): void=> {
     dispatch(deleteSingleFichePatientById(id))
+  }
+
+  const exportPDF = async(id: number, isAdult: boolean, nom: string, prenom: string)=> {
+    const fichePatient = listeFichesPatient.find((fichePatient: FicheReponses)=> fichePatient.id === id)
+    setLoading(true)
+    setLoadingExport(true)
+
+    try {
+      const result: any = await RNHTMLtoPDF.convert({
+        html: isAdult ? getHTMLAdultForm(fichePatient) : getHTMLChildForm(fichePatient),
+        fileName: `${nom}-${prenom}-${id}`,
+        directory: 'Documents',
+      })
+      
+      if(result){
+        const response = await FileViewer.open(result.filePath)
+        if(response === undefined){
+          setLoadingExport(false)
+          setLoading(false)
+        }
+      } 
+    } catch (error: any) {
+      console.log(error)
+      setLoading(false)
+      setLoadingExport(false)
+      Alert.alert("Erreur", error)
+    }
   }
 
   const createTwoButtonAlert = (id: number) => {

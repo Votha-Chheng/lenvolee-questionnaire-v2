@@ -14,7 +14,7 @@ const initialState: IdentityAdult = {
   profession:undefined, //
   adresse:undefined, //
   codePostal:undefined, //
-  ville:undefined, //
+  ville:undefined //
 }
 
 const identitySlice = createSlice({
@@ -22,7 +22,19 @@ const identitySlice = createSlice({
   initialState,
   reducers: {
     resetIdentityAdult: (state) => {
-      state = initialState
+      state.dr="Sylvie MA-Francin",
+      state.dateRdv = new Date(Date.now()).toString(),
+      state.genre = "Madame",
+      state.nom = undefined, //
+      state.prenom = undefined, //
+      state.dateDeNaissance = undefined, //
+      state.tel = undefined, //
+      state.emailOuiNon = undefined,//
+      state.email = "", 
+      state.profession = undefined, //
+      state.adresse = undefined, //
+      state.codePostal = undefined, //
+      state.ville = undefined //
     },
     getDr: (state, action) => {
       state.dr = action.payload

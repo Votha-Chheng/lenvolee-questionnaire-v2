@@ -13,7 +13,10 @@ const consultationInfoSlice = createSlice({
   initialState,
   reducers: {
     resetConsultationInfo: (state) => {
-      state = initialState
+      state.dateDernierExamDentaire = undefined, //
+      state.motifConsultation = undefined, //
+      state.difficulteDentiste = undefined, //
+      state.listeDifficulteDentiste = []
     },
     getDateDernierExamDentaire: (state, action) => {
       state.dateDernierExamDentaire = action.payload

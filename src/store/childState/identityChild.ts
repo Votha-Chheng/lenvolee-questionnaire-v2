@@ -22,7 +22,19 @@ const identityChildSlice = createSlice({
   initialState,
   reducers: {
     resetIdentityChild: (state) => {
-      state = initialState
+      state.dateRdv = (new Date()).toString(),
+      state.nom = undefined, //
+      state.prenom = undefined, //
+      state.dateDeNaissance = undefined, //
+      state.telEnfant = "",
+      state.adresse = undefined, //
+      state.codePostal = undefined, //
+      state.ville = undefined, //
+      state.niveauScolaire = undefined, //
+      state.hobbies = [],
+      state.fratrie = undefined,
+      state.nbreFrereSoeur = 0,
+      state.place = ""
     },
     getDateRdv: (state, action) =>{
       state.dateRdv = action.payload

@@ -193,12 +193,12 @@ const DentsInfo: FC = () => {
             statement={listeSensibilite}
           />
           <View style={[globalStyles.flexRow, {alignItems: "flex-start"}]}>
-            <View>
+            <View style={{marginLeft:0}}>
               <CheckBoxComponent title="Au chaud" maladies={listeSensibilite} handleChangeValues={addRadioItem} dispatcher={dispatch} reducerFromStore={getListeSensibilite} />
               <CheckBoxComponent title="Au froid" maladies={listeSensibilite} handleChangeValues={addRadioItem} dispatcher={dispatch} reducerFromStore={getListeSensibilite} />
               <CheckBoxComponent title="Au sucre" maladies={listeSensibilite} handleChangeValues={addRadioItem} dispatcher={dispatch} reducerFromStore={getListeSensibilite} />
             </View>
-            <View style={{marginLeft:`${width>500 ? 40:0}`}}>
+            <View style={{marginLeft:width>600 ? 40:20}}>
               <CheckBoxComponent title="Au goût acide" maladies={listeSensibilite} handleChangeValues={addRadioItem} dispatcher={dispatch} reducerFromStore={getListeSensibilite} />
               <CheckBoxComponent title="À la mastication" maladies={listeSensibilite} handleChangeValues={addRadioItem} dispatcher={dispatch} reducerFromStore={getListeSensibilite} />
             </View>

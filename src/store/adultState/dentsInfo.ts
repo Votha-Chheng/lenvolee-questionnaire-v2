@@ -19,7 +19,16 @@ const dentsInfosSlice = createSlice({
   initialState,
   reducers: {
     resetDentsInfo : (state) => {
-      state = initialState
+      state.dentsExtraites = undefined, //
+      state.causesExtraction = [],
+      state.dentsRemplacees = undefined,
+      state.moyenDentRemplacement = [],
+      state.raisonsNonRemplacementDentsExtraites = "",
+      state.sensationProthesesActuelles = undefined,
+      state.utilisationMetaux = undefined, //
+      state.preferencesUtilisationMetaux = "",
+      state.dentsSensibles = undefined, //
+      state.listeSensibilite = []
     },
     getDentsExtraites : (state, action) =>{
       state.dentsExtraites = action.payload

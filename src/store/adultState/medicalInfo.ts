@@ -18,7 +18,7 @@ const initialState: MedicalInfos = {
   moisDeGrossesse:null,
   pilule:undefined,
   osteoporose:undefined, //
-  medicOsteoporose :[],
+  medicOsteoporose :[]
 }
 
 const medicalInfosSlice = createSlice({
@@ -26,7 +26,23 @@ const medicalInfosSlice = createSlice({
   initialState,
   reducers: {
     resetMedicalHistory: (state) => {
-      state = initialState
+      state.medecinTraitant = undefined, //
+      state.dateDernierExamen = undefined, //
+      state.changementEtatSante = undefined, //
+      state.maladies = [],
+      state.saignementInterventionAccident = undefined, //
+      state.traitementRadiations = undefined, //
+      state.priseMedicamentActuelle = undefined,
+      state.medicamentsActuels = [],
+      state.allergies = undefined, //
+      state.allergiesListe = [],
+      state.fumeur = undefined, //
+      state.cigarettesParJour = null,
+      state.enceinte = undefined, //
+      state.moisDeGrossesse = null,
+      state.pilule = undefined,
+      state.osteoporose = undefined, //
+      state.medicOsteoporose = []
     },
     getMedecinTraitant: (state, action) => {
       state.medecinTraitant = action.payload

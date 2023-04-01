@@ -14,7 +14,7 @@ export type ComponentAutresProps = {
   obligatoire?: boolean
 }
 
-const ComponentAutres: FC<ComponentAutresProps> = ({stateArray, reducerFromStore, extraItem, placeHolder, obligatoire = true, width=275}: ComponentAutresProps)=>{
+const ComponentAutres: FC<ComponentAutresProps> = ({stateArray, reducerFromStore, extraItem, placeHolder, obligatoire = true, width=350}: ComponentAutresProps)=>{
 
   const [inputValue, setInputValue] = useState("")
   const [showNewValues, setShowNewValues] = useState(false)
@@ -146,7 +146,6 @@ const ComponentAutres: FC<ComponentAutresProps> = ({stateArray, reducerFromStore
             >
               AJOUTER
             </Button>
-
             {
               showDelete 
               ?

@@ -18,7 +18,15 @@ const diversInfosSlice = createSlice({
   initialState,
   reducers: {
     resetDiversInfo : (state) => {
-      state = initialState
+      state.appareilDentaireUneFois = undefined, //
+      state.preoccupationDentsOuiNon = undefined, //
+      state.preoccupationDents = "",
+      state.modifierDentsOuiNon = undefined, //
+      state.modifierDents = "",
+      state.anxieuxSoinsDentaires = undefined, //
+      state.commentConnaissezVousLeCabinet = undefined, //
+      state.autresRemarquesUtilesOuiNon = undefined, //
+      state.autresRemarquesUtiles = ""
     },
     getAppareilDentaireUneFois : (state, action) =>{
       state.appareilDentaireUneFois = action.payload

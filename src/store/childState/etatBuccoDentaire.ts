@@ -32,7 +32,29 @@ const etatBuccoDentaireSlice = createSlice({
   initialState,
   reducers: {
     resetEtatBuccoDentaire: (state) => {
-      state = initialState
+      state.momentsBrossageDents = undefined,
+      state.brossageSeul = undefined,
+      state.nbRepasParJour = undefined,
+      state.sucrerieOuiNon = undefined,
+      state.frequenceSucrerie = "",
+      state.sodaOuiNon = undefined,
+      state.sodasListe = [],
+      state.cariesAvant = undefined,
+      state.dentEnleveOuiNon = undefined,
+      state.dentCasseOuiNon = undefined,
+      state.dentCasse = [],
+      state.problemeApresTraitementDentaire = undefined,
+      state.traitementOrtho = undefined,
+      state.habitudesChild = [],
+      state.anesthesieLocale = undefined,
+      state.anesthesieDentaire = undefined, 
+      state.orthophonie = undefined,
+      state.troubleSommeil = [],
+      state.craintesGeneralesOuiNon = undefined,
+      state.listeCraintesGenerales = [],
+      state.craintesDentiste = undefined,
+      state.remarquesUtilesOuiNon = undefined,
+      state.remarquesUtiles = ""
     },
     getMomentsBrossageDents: (state, action) => {
       state.momentsBrossageDents = action.payload

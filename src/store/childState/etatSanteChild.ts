@@ -23,7 +23,20 @@ const etatDeSanteChildSlice = createSlice({
   initialState,
   reducers: {
     resetEtatDeSanteChild: (state) => {
-      state = initialState
+      state.problemeSante = undefined,
+      state.surveillanceMedicale = undefined,
+      state.periodeSurveillanceMedicale = "",
+      state.raisonSurveillanceMedicale = "",
+      state.priseMedicamentsChild = undefined,
+      state.listeMedicamentsChild = [],
+      state.allergiesMedicamentsOuiNon = undefined,
+      state.listeAllergiesMedicaments = [],
+      state.maladieGraveOuiNon = undefined,
+      state.listeMaladiesGraves = [],
+      state.operationOuiNon = undefined,
+      state.listeOperations = [],
+      state.autresAntecedentsMedicauxOuiNon = undefined,
+      state.autresAntecedentsMedicaux = ""
     },
     getProblemeSante: (state, action) => {
       state.problemeSante = action.payload

@@ -5,8 +5,7 @@ const initialState: GencivesInfos = {
   dentsEcartes:undefined, //
   saignementGencive:undefined, //
   traitementGencive:undefined, //
-  traitementGencivesPar:[],
-
+  traitementGencivesPar:[]
 } 
 
 const gencivesSlice = createSlice ({
@@ -14,7 +13,10 @@ const gencivesSlice = createSlice ({
   initialState,
   reducers : {
     resetGencives: (state) => {
-      state = initialState
+      state.dentsEcartes = undefined, //
+      state.saignementGencive = undefined, //
+      state.traitementGencive = undefined, //
+      state.traitementGencivesPar = []
     },
     getDentsEcartes : (state, action) =>{
       state.dentsEcartes = action.payload

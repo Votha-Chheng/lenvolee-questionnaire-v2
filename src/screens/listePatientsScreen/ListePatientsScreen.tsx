@@ -1,52 +1,18 @@
-import { StyleSheet, Text, View, Alert, useWindowDimensions, FlatList } from 'react-native'
-import React, { FC, useState } from 'react'
-import FileViewer from "react-native-file-viewer";
-import RNHTMLtoPDF from 'react-native-html-to-pdf';
-import { getHTMLAdultForm, getHTMLChildForm } from '../../utils/getHtmlForm'
-import { useDispatch, useSelector } from 'react-redux'
+import { StyleSheet, Text, View, FlatList } from 'react-native'
+import React, { FC } from 'react'
+import { useSelector } from 'react-redux'
 import { RootState } from '../../store/store'
 import { FicheReponses } from '../../classes/FicheReponses'
 import PatientCard from './components/PatientCard';
 
 const ListFichesPatients: FC = () => {
-
   const { listeFichesPatient } = useSelector((state: RootState)=> state.listeFichesPatient )
 
-  const [loading, setLoading] = useState<boolean>(false)
-  const [loadingExport, setLoadingExport] = useState<boolean>(false)
-
-  const listSortedByDate = (list: any[])=> {
+  const listSortedByDate = (list: FicheReponses[])=> {
     const temp = [...list]
     return temp.reverse()
   }
 
-  const exportPDF = async(id: number, isAdult: boolean, nom: string, prenom: string)=> {
-    const fichePatient = listeFichesPatient.find((fichePatient: FicheReponses)=> fichePatient.id === id)
-    setLoading(true)
-    setLoadingExport(true)
-
-    try {
-      const result: any = await RNHTMLtoPDF.convert({
-        html: isAdult ? getHTMLAdultForm(fichePatient) : getHTMLChildForm(fichePatient),
-        fileName: `${nom}-${prenom}-${id}`,
-        directory: 'Documents',
-      })
-      
-      if(result){
-        const response = await FileViewer.open(result.filePath)
-        if(response === undefined){
-          setLoadingExport(false)
-          setLoading(false)
-        }
-        
-      } 
-    } catch (error: any) {
-      console.log(error)
-      setLoading(false)
-      setLoadingExport(false)
-      Alert.alert("Erreur", error)
-    }
-  }
 
   return (
     <View style={{paddingHorizontal:10}}>
@@ -54,7 +20,7 @@ const ListFichesPatients: FC = () => {
         data={listSortedByDate(listeFichesPatient)}
         keyExtractor={(item: FicheReponses) => item.id.toString()}
         renderItem = {({item, index}) => (
-          <PatientCard key={index.toString()} index={index} fiche={item}  loading={loading} exportPDF={exportPDF} loadingExport={loadingExport}/>
+          <PatientCard key={index.toString()} index={index} fiche={item}/>
         )}
         ListHeaderComponent={
           <Text style={{fontSize:30, color: "black", fontWeight:'bold', textAlign:"center", marginVertical:30}}>

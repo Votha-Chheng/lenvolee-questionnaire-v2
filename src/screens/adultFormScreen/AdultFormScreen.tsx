@@ -17,18 +17,7 @@ import Intro from '../../sharedUI/layout/Intro'
 import Titles from '../../sharedUI/layout/Titles'
 import Gencives from './components/Gencives'
 import { ActivityIndicator } from 'react-native-paper'
-import { resetAdultGlobalState } from '../../utils/resetGlobalState'
 import { useDispatch } from 'react-redux'
-// import { resetIdentityAdult } from '../../store/adultState/identityAdult'
-// import { resetMedicalHistory } from '../../store/adultState/medicalInfo'
-// import { resetMachoire } from '../../store/adultState/machoire'
-// import { resetHygieneDentaire } from '../../store/adultState/hygieneDentaireInfo'
-// import { resetHabitudesInfo } from '../../store/adultState/habitudesInfo'
-// import { resetGencives } from '../../store/adultState/gencives'
-// import { resetEsthetique } from '../../store/adultState/esthetiqueInfo'
-// import { resetDiversInfo } from '../../store/adultState/diversInfo'
-// import { resetConsultationInfo } from '../../store/adultState/consultationInfo'
-// import { resetDentsInfo } from '../../store/adultState/dentsInfo'
 
 const AdultFormScreen: FC = () => {
   const [loading, setLoading] = useState<boolean>(false)
@@ -46,17 +35,7 @@ const AdultFormScreen: FC = () => {
   }, [isFocused])
 
   useEffect(()=> {
-    resetAdultGlobalState(dispatch)
-    // dispatch(resetIdentityAdult())
-    // dispatch(resetMedicalHistory())
-    // dispatch(resetMachoire())
-    // dispatch(resetHygieneDentaire())
-    // dispatch(resetHabitudesInfo())
-    // dispatch(resetGencives())
-    // dispatch(resetEsthetique())
-    // dispatch(resetDiversInfo())
-    // dispatch(resetConsultationInfo())
-    // dispatch(resetDentsInfo())
+    
   }, [])
 
 

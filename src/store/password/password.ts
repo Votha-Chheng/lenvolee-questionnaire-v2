@@ -13,7 +13,7 @@ const passwordSlice = createSlice({
   initialState,
   reducers: {
     resetPassword:(state)=> {
-      state = initialState
+      state.password = undefined
     },
     setPassword: (state, action)=> {
       state.password = action.payload

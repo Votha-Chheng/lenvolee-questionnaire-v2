@@ -1,30 +1,16 @@
-import { Alert, StyleSheet, Text, TextInput, View } from 'react-native'
+import { Alert, StyleSheet, Text, View } from 'react-native'
 import React, { FC, useEffect, useState } from 'react'
 import { Button } from 'react-native-paper'
 import { useDispatch, useSelector } from 'react-redux'
 import { StackNavigationProp } from '@react-navigation/stack'
 import { RootStackParamList } from '../../../App'
 import { useNavigation } from '@react-navigation/native'
-import { resetConsultationInfo } from '../../store/adultState/consultationInfo'
-import { resetDentsInfo } from '../../store/adultState/dentsInfo'
-import { resetDiversInfo } from '../../store/adultState/diversInfo'
-import { resetEsthetique } from '../../store/adultState/esthetiqueInfo'
-import { resetGencives } from '../../store/adultState/gencives'
-import { resetHabitudesInfo } from '../../store/adultState/habitudesInfo'
-import { resetHygieneDentaire } from '../../store/adultState/hygieneDentaireInfo'
-import { resetMachoire } from '../../store/adultState/machoire'
-import { resetMedicalHistory } from '../../store/adultState/medicalInfo'
-import { resetConsultationChild } from '../../store/childState/consultationChild'
-import { resetEtatBuccoDentaire } from '../../store/childState/etatBuccoDentaire'
-import { resetEtatDeSanteChild } from '../../store/childState/etatSanteChild'
-import { resetIdentityAccompagnant } from '../../store/childState/identityAccompagnant'
-import { resetIdentityChild } from '../../store/childState/identityChild'
 import { globalStyles } from '../../utils/globalStyles'
 import { RootState } from '../../store/store'
 import { resetListFichePatient } from '../../store/listePatients/listefichesPatients'
 import LockScreen from './components/LockScreen'
 import ChoosePassword from './components/ChoosePassword'
-import { resetIdentityAdult } from '../../store/adultState/identityAdult'
+import { resetAdultGlobalState, resetChildGlobalState } from '../../utils/resetGlobalState'
 
 export type HomeScreenProps = StackNavigationProp<RootStackParamList, "Home">
 
@@ -37,28 +23,6 @@ const HomeScreen:FC = () => {
   const navigation = useNavigation<HomeScreenProps>()
 
   const dispatch = useDispatch()
-
-  const resetAdultStateForm = ()=> {
-    dispatch(resetIdentityAdult())
-    dispatch(resetConsultationInfo())
-    dispatch(resetDentsInfo())
-    dispatch(resetDiversInfo())
-    dispatch(resetEsthetique())
-    dispatch(resetGencives())
-    dispatch(resetHabitudesInfo())
-    dispatch(resetHygieneDentaire())
-    dispatch(resetMachoire())
-    dispatch(resetMedicalHistory())
-  }
-
-  const resetChildStateForm = ()=> {
-    dispatch(resetConsultationChild())
-    dispatch(resetEtatBuccoDentaire())
-    dispatch(resetEtatDeSanteChild())
-    dispatch(resetIdentityAccompagnant())
-    dispatch(resetIdentityChild())
-  }
-
 
   useEffect(()=>{
     if(password === undefined){
@@ -80,11 +44,11 @@ const HomeScreen:FC = () => {
   }
   
   const pressNouveauPatientAdulte = ()=>{
-    resetAdultStateForm()
+    resetAdultGlobalState(dispatch)
     navigation.navigate("AdultForm")
   }
   const pressNouveauPatientEnfant = ()=>{
-    resetChildStateForm()
+    resetChildGlobalState(dispatch)
     navigation.navigate("ChildForm")
   }
 

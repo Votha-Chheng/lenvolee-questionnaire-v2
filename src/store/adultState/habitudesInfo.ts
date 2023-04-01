@@ -12,7 +12,8 @@ const habitudeSlice = createSlice ({
   initialState,
   reducers : {
     resetHabitudesInfo: (state) => {
-      state = initialState
+      state.habitudes = [],
+      state.mauvaiseHaleine = undefined //
     },
     getHabitudes : (state, action) =>{
       state.habitudes = action.payload

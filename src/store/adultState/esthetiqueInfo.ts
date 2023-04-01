@@ -16,7 +16,12 @@ const gencivesSlice = createSlice ({
   initialState,
   reducers : {
     resetEsthetique: (state) => {
-      state = initialState
+      state.dentsMemeCouleurs = undefined,
+      state.souhaitDentsPlusBlanches = undefined, //
+      state.satisfactionDentsGencives = undefined, //
+      state.mainDevantBoucheSourire = undefined, //
+      state.souhaitsChangementOuiNon = undefined, //
+      state.souhaitsChangement = ""
     },
     getDentsMemeCouleurs : (state, action) =>{
       state.dentsMemeCouleurs = action.payload

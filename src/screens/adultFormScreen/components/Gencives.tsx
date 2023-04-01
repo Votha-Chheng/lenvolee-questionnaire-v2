@@ -65,7 +65,7 @@ const Gencives:FC = () => {
               question="Le(s) traitement(s) a/ont été effectué(s) par "
               statement={traitementGencivesPar}
             />
-            <View style={{marginHorizontal:25}}>
+            <View style={{marginHorizontal:10}}>
               <CheckBoxComponent title="Chirurgie" maladies={traitementGencivesPar} handleChangeValues={addRadioItem} dispatcher={dispatch} reducerFromStore={getTraitementGencivesPar} />
               <CheckBoxComponent title="Médicaments" maladies={traitementGencivesPar} handleChangeValues={addRadioItem} dispatcher={dispatch} reducerFromStore={getTraitementGencivesPar}/>
               <CheckBoxComponent title="Détartrage" maladies={traitementGencivesPar} handleChangeValues={addRadioItem} dispatcher={dispatch} reducerFromStore={getTraitementGencivesPar}/>
