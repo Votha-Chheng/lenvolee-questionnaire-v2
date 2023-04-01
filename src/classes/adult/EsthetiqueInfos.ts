@@ -1,9 +1,9 @@
 export default class EsthetiqueInfos {
-  dentsMemeCouleurs?: boolean
-  souhaitDentsPlusBlanches?: boolean //
-  satisfactionDentsGencives?: boolean //
-  mainDevantBoucheSourire?: boolean //
-  souhaitsChangementOuiNon?:boolean //
+  dentsMemeCouleurs: boolean|undefined//
+  souhaitDentsPlusBlanches: boolean|undefined //
+  satisfactionDentsGencives: boolean|undefined //
+  mainDevantBoucheSourire: boolean|undefined //
+  souhaitsChangementOuiNon:boolean|undefined //
   souhaitsChangement?: string
 
 }

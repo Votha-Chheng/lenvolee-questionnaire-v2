@@ -1,4 +1,4 @@
 export type OperationChild = {
-  cause: string
-  age: number
+  cause: string|undefined
+  age: number|undefined
 }

@@ -114,7 +114,7 @@ const ComponentAutresForObject:FC<ComponentAutresForObjectProps> = ({
               }}
               placeholder={placeHolderOne}
             />
-            <Text style={{fontWeight:"bold"}}>{liaison} </Text>
+            <Text style={{fontWeight:"bold", color: "black"}}>{liaison} </Text>
             <TextInput
               placeholderTextColor="grey"
               autoCapitalize='none'
@@ -123,16 +123,13 @@ const ComponentAutresForObject:FC<ComponentAutresForObjectProps> = ({
               onChangeText={(text)=>{
                 if(text.length>0){
                   setInputFrequence(text.trim())
-
                 } else {
                   setInputFrequence("")
                 }
               }}
               placeholder={placeHolderTwo}
             />
-            {
-              unit !== undefined && <Text style={{fontWeight:"bold"}} >{unit}</Text>
-            }
+            {unit !== undefined && <Text style={{fontWeight:"bold"}} >{unit}</Text>}
           </View>
           
           <View style={globalStyles.flexRow}>

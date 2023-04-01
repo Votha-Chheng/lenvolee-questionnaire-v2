@@ -1,4 +1,4 @@
 export type MedicamentsChild = {
-  nomMedicament: string
-  frequence: string
+  nomMedicament: string|undefined
+  frequence: string|undefined
 }

@@ -13,12 +13,14 @@ import { ActivityIndicator } from 'react-native-paper'
 import Intro from '../../sharedUI/layout/Intro'
 import Titles from '../../sharedUI/layout/Titles'
 import { globalStyles } from '../../utils/globalStyles'
+import { resetChildGlobalState } from '../../utils/resetGlobalState'
+import { useDispatch } from 'react-redux'
 
 const ChildFormScreen: FC = () => {
-
   const [loading, setLoading] = useState<boolean>(true)
 
   const navigation = useNavigation<HomeScreenProps>()
+  const dispatch = useDispatch()
 
   useEffect(()=>{
     if(navigation.isFocused()){
@@ -26,6 +28,9 @@ const ChildFormScreen: FC = () => {
     }
   }, [navigation.isFocused()])
 
+  useEffect(()=> {
+    resetChildGlobalState(dispatch)
+  }, [])
 
   useEffect(()=>{
     navigation.addListener("beforeRemove", (event)=>{

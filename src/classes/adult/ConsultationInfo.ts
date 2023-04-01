@@ -1,7 +1,7 @@
 export type ConsultationInfo = {
-  dateDernierExamDentaire?:string //
-  motifConsultation?:string //
-  difficulteDentiste?:boolean //
+  dateDernierExamDentaire:string|undefined //
+  motifConsultation:string|undefined //
+  difficulteDentiste:boolean|undefined //
   listeDifficulteDentiste?:string[]
 
 }

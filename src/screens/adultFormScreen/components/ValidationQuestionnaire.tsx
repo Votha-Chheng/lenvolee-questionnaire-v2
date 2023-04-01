@@ -12,7 +12,7 @@ import { FicheReponses } from '../../../classes/FicheReponses';
 import { displayAlertWithTwoButtons } from '../../../utils/alertButtons';
 
 const ValidationQuestionnaire: FC = () => {
-  const {identity, consultationInfo, dentsInfo, diversInfo, esthetiqueInfo, gencivesInfo, habitudesInfo, hygienDentaireInfo, machoireInfo, medicalInfos} = useSelector((state: RootState) => state)
+  const {identityAdult, consultationInfo, dentsInfo, diversInfo, esthetiqueInfo, gencivesInfo, habitudesInfo, hygienDentaireInfo, machoireInfo, medicalInfos} = useSelector((state: RootState) => state)
   const { listeFichesPatient } = useSelector((state: RootState)=> state.listeFichesPatient)
 
   const [questionsRestantes, setQuestionsRestantes] = useState(0)
@@ -43,7 +43,7 @@ const ValidationQuestionnaire: FC = () => {
   useEffect(()=>{
     const totalUndefined = totalUndefinedState(
       [
-        countUndefinedState(identity), 
+        countUndefinedState(identityAdult), 
         countUndefinedState(medicalInfos), 
         countUndefinedState(dentsInfo), 
         countUndefinedState(consultationInfo), 
@@ -58,13 +58,13 @@ const ValidationQuestionnaire: FC = () => {
 
     setQuestionsRestantes(totalUndefined)
     
-  }, [identity, medicalInfos, dentsInfo, consultationInfo, gencivesInfo, machoireInfo, hygienDentaireInfo, habitudesInfo, esthetiqueInfo, diversInfo])
+  }, [identityAdult, medicalInfos, dentsInfo, consultationInfo, gencivesInfo, machoireInfo, hygienDentaireInfo, habitudesInfo, esthetiqueInfo, diversInfo])
 
   const insertFichePatientInAdultPatientsList = ()=> {
     const reponsesObject: FicheReponses = {
       isAdult: true, 
       id: +Date.now(), 
-      ...identity, 
+      ...identityAdult, 
       ...medicalInfos, 
       ...dentsInfo, 
       ...consultationInfo, 

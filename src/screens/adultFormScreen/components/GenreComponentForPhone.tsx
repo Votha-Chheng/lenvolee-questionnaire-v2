@@ -4,14 +4,14 @@ import RadioComponent from '../../../sharedUI/form/RadioComponent'
 import { useDispatch, useSelector } from 'react-redux'
 import { RootState } from '../../../store/store'
 import { RadioButton, TextInput } from 'react-native-paper'
-import { getGenre, getNom, getPrenom } from '../../../store/adultState/identity'
+import { getGenre, getNom, getPrenom } from '../../../store/adultState/identityAdult'
 import { getEnceinte, getPilule } from '../../../store/adultState/medicalInfo'
 import { globalStyles } from '../../../utils/globalStyles'
 import Label from '../../../sharedUI/form/Label'
 import { onValidateLengthInput } from '../../../utils/validateLengthInput'
 
 const GenreComponentForPhone: FC = () => {
-  const {genre, nom, prenom} = useSelector((state: RootState)=> state.identity)
+  const {genre, nom, prenom} = useSelector((state: RootState)=> state.identityAdult)
 
   const dispatch = useDispatch()
 

@@ -1,4 +1,4 @@
 export type Boisson = {
-  boisson: string
-  frequence: string
+  boisson: string|undefined
+  frequence: string|undefined
 }

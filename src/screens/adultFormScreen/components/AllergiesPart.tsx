@@ -10,7 +10,6 @@ import CheckBoxComponent from '../../../sharedUI/form/CheckboxComponent'
 import { addRadioItem } from '../../../utils/addRadioItem'
 import ComponentAutres from '../../../sharedUI/form/ComponentAutres'
 
-
 const AllergiesPart: FC = () => {
 
   const {allergies, allergiesListe} = useSelector((state: RootState) => state.medicalInfos)
@@ -32,7 +31,7 @@ const AllergiesPart: FC = () => {
       <Label
         question="Êtes-vous allergique à certains produits ou médicaments ? "
         statement={allergies}
-        />
+      />
       <RadioComponent
         valueState={allergies} 
         setValueToTrue = {()=>allergiesToTrue()} 
@@ -47,14 +46,14 @@ const AllergiesPart: FC = () => {
               statement={allergiesListe}
             />
             <View style={[globalStyles.flexRow, {alignItems:"flex-start"}]}>
-              <View style={{marginHorizontal:10}}>
+              <View style={width>600 ? {marginLeft:10}: {marginLeft:0}}>
                 <CheckBoxComponent title="Anesthésique local du dentiste" maladies={allergiesListe} handleChangeValues={addRadioItem} dispatcher={dispatch} reducerFromStore={getAllergiesListe}/>
                 <CheckBoxComponent title="Iode et produits dérivés" maladies={allergiesListe} handleChangeValues={addRadioItem} dispatcher={dispatch} reducerFromStore={getAllergiesListe}/>
                 <CheckBoxComponent title="Métal" maladies={allergiesListe} handleChangeValues={addRadioItem} dispatcher={dispatch} reducerFromStore={getAllergiesListe}/>
                 <CheckBoxComponent title="Antibiotique" maladies={allergiesListe} handleChangeValues={addRadioItem} dispatcher={dispatch} reducerFromStore={getAllergiesListe}/>    
                 <CheckBoxComponent title="Latex" maladies={allergiesListe} handleChangeValues={addRadioItem} dispatcher={dispatch} reducerFromStore={getAllergiesListe}/>
               </View>
-              <View style={width>500 ? {marginHorizontal:10}: {marginHorizontal:0}}>
+              <View style={width>600 ? {marginLeft:10}: {marginLeft:0}}>
                 <CheckBoxComponent title="Barbituriques" maladies={allergiesListe} handleChangeValues={addRadioItem} dispatcher={dispatch} reducerFromStore={getAllergiesListe}/>
                 <CheckBoxComponent title="Anti-inflammatoire/aspirine" maladies={allergiesListe} handleChangeValues={addRadioItem} dispatcher={dispatch} reducerFromStore={getAllergiesListe}/>
                 <CheckBoxComponent title="Neuroleptique/somnifère" maladies={allergiesListe} handleChangeValues={addRadioItem} dispatcher={dispatch} reducerFromStore={getAllergiesListe}/>

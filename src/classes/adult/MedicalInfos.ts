@@ -1,15 +1,15 @@
 export type MedicalInfos = {
-  medecinTraitant?: string; //
-  dateDernierExamen?:string; //
-  changementEtatSante?:boolean; //
+  medecinTraitant: string|undefined; //
+  dateDernierExamen:string|undefined; //
+  changementEtatSante:boolean|undefined; //
   maladies: string[];
-  saignementInterventionAccident?:boolean; //
-  traitementRadiations?:boolean; //
-  priseMedicamentActuelle?:boolean;
+  saignementInterventionAccident:boolean|undefined; //
+  traitementRadiations:boolean|undefined; //
+  priseMedicamentActuelle:boolean|undefined;
   medicamentsActuels?:string[];
-  allergies?: boolean; //
+  allergies: boolean|undefined; //
   allergiesListe?:string[];
-  fumeur?: boolean; //
+  fumeur: boolean|undefined; //
   cigarettesParJour?:string|null;
   enceinte?:boolean; //
   moisDeGrossesse?:string|null;

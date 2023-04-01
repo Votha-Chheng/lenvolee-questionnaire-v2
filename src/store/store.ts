@@ -1,6 +1,6 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit'
 import { useDispatch } from 'react-redux'
-import identityReducer from './adultState/identity'
+import identityAdultReducer from './adultState/identityAdult'
 import medicalInfosReducer from './adultState/medicalInfo'
 import consultationInfoReducer from './adultState/consultationInfo'
 import gencivesReducer from './adultState/gencives'
@@ -21,7 +21,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage'
 import {persistReducer} from 'redux-persist'
 
 const reducers = combineReducers({
-  identity : identityReducer,
+  identityAdult : identityAdultReducer,
   medicalInfos : medicalInfosReducer,
   consultationInfo : consultationInfoReducer,
   gencivesInfo : gencivesReducer,

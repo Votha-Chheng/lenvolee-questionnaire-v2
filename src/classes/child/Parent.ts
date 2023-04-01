@@ -1,8 +1,8 @@
 export type Parent = {
-  nom ?: string, //
-  prenom?:string, //
-  tel?:string, //
-  emailOuiNon?: boolean,
-  email:string, //
-  profession?:string, //
+  nom: string|undefined, //
+  prenom:string|undefined, //
+  tel:string|undefined, //
+  emailOuiNon: boolean|undefined,
+  email?:string, //
+  profession:string|undefined, //
 }

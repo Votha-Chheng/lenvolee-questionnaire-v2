@@ -21,72 +21,30 @@ const SensationsProtheses: FC = () => {
     <View style={[globalStyles.flexRow, {marginBottom:0}]}>
       <RadioButton
         value="Confortable"
-        status={ 
-          sensationProthesesActuelles===undefined || sensationProthesesActuelles !== "Confortable"
-          ? 
-          'unchecked' 
-          :  
-          'checked' 
-        }
+        status={ sensationProthesesActuelles===undefined || sensationProthesesActuelles !== "Confortable" ? 'unchecked' :  'checked' }
         onPress={()=>dispatch(getSensationProthesesActuelles("Confortable"))}
       />
-      <Text 
-        style={
-          sensationProthesesActuelles===undefined ||  sensationProthesesActuelles !=="Confortable"
-          ? 
-          {fontSize: 20, color:"grey"} 
-          : 
-          {fontSize: 20, color:"green", fontWeight:"bold"}
-        }
-      >
+      <Text style={sensationProthesesActuelles===undefined ||  sensationProthesesActuelles !=="Confortable" ? {fontSize: 20, color:"grey"} : {fontSize: 20, color:"green", fontWeight:"bold"}}>
         Je ne ressens aucune gêne.
       </Text>
     </View>
     <View style={[globalStyles.flexRow, {marginBottom:0}]}>
       <RadioButton
         value="Un peu inconfortable"
-        status={
-          sensationProthesesActuelles===undefined || sensationProthesesActuelles!=="Un peu inconfortable" 
-          ? 
-          'unchecked' 
-          : 
-          'checked' 
-        }
+        status={sensationProthesesActuelles===undefined || sensationProthesesActuelles!=="Un peu inconfortable" ? 'unchecked' : 'checked'}
         onPress={()=>dispatch(getSensationProthesesActuelles("Un peu inconfortable" ))}
       />
-      <Text 
-        style={
-          sensationProthesesActuelles===undefined || sensationProthesesActuelles!=="Un peu inconfortable" 
-          ? 
-          {fontSize: 20, color:"grey"} 
-          : 
-          {fontSize: 20, color:"green", fontWeight:"bold"}
-        }
-      >
+      <Text style={sensationProthesesActuelles===undefined || sensationProthesesActuelles!=="Un peu inconfortable" ? {fontSize: 20, color:"grey"} : {fontSize: 20, color:"green", fontWeight:"bold"}}>
         Je ressens un peu d'inconfort.
       </Text>
     </View>
     <View style={globalStyles.flexRow}>
       <RadioButton
         value="Très inconfortable"
-        status={
-          sensationProthesesActuelles===undefined || sensationProthesesActuelles !== "Très inconfortable" 
-          ? 
-          'unchecked' 
-          : 
-          'checked'
-        }
+        status={sensationProthesesActuelles===undefined || sensationProthesesActuelles !== "Très inconfortable" ? 'unchecked' : 'checked'}
         onPress={()=>dispatch(getSensationProthesesActuelles("Très inconfortable"))}
       />
-      <Text 
-        style={
-          sensationProthesesActuelles===undefined || sensationProthesesActuelles!=="Très inconfortable" 
-          ? 
-          {fontSize: 20, color:"grey"} 
-          : 
-          {fontSize: 20, color:"green", fontWeight:"bold"}
-        }
-      >
+      <Text style={sensationProthesesActuelles===undefined || sensationProthesesActuelles!=="Très inconfortable" ? {fontSize: 20, color:"grey"} : {fontSize: 20, color:"green", fontWeight:"bold"}}>
         Elles sont très gênantes.
       </Text>
     </View>

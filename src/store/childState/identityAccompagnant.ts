@@ -21,18 +21,7 @@ const identityAcommpagnantSlice = createSlice({
   initialState,
   reducers: {
     resetIdentityAccompagnant: (state) => {
-      state.responsablesParents = undefined,
-      state.parentOne  = {
-        nom: undefined, //
-        prenom: undefined, //
-        tel: undefined, //
-        emailOuiNon: undefined,
-        email:"" ,
-        profession: undefined, //
-      }, 
-      state.parentTwoOuiNon = undefined,
-      state.parentTwo = null,
-      state.situationFamiliale = undefined
+      state = initialState
     },
     getResponsablesParents: (state, action) => {
       state.responsablesParents = action.payload

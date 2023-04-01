@@ -1,6 +1,6 @@
 export type MachoireInfos = {
-  serrementGrincementDents?:boolean; //
-  craquementClaquementDouleurOuvertureMachoire?:boolean; //
-  difficulteAvalerMacherCoteUnique?:boolean; //
+  serrementGrincementDents:boolean|undefined; //
+  craquementClaquementDouleurOuvertureMachoire:boolean|undefined; //
+  difficulteAvalerMacherCoteUnique:boolean|undefined; //
 
 }

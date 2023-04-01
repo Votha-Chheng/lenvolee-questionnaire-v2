@@ -1,4 +1,4 @@
 export type MaladieGraveChild = {
-  nomMaladie: string
-  age: number
+  nomMaladie: string|undefined
+  age: number|undefined
 }

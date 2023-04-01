@@ -3,7 +3,7 @@ import React, { FC, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../../store/store';
 import { Picker } from '@react-native-picker/picker';
-import { getAdresse, getCodePostal, getDateDeNaissance, getDateRdv, getDr, getEmail, getEmailOuiNon, getProfession, getTel, getVille } from '../../../store/adultState/identity';
+import { getAdresse, getCodePostal, getDateDeNaissance, getDateRdv, getDr, getEmail, getEmailOuiNon, getProfession, getTel, getVille } from '../../../store/adultState/identityAdult';
 import { onValidateLengthInput } from '../../../utils/validateLengthInput';
 import { globalStyles } from '../../../utils/globalStyles';
 import BirthComponent from '../../../sharedUI/form/BirthComponent';
@@ -16,7 +16,7 @@ import { TextInput } from 'react-native-paper';
 import GenreComponentForPhone from './GenreComponentForPhone';
 
 const IdentityPart: FC = () => {
-  const {dr, dateRdv, dateDeNaissance, tel, email, emailOuiNon, profession, adresse, codePostal, ville} = useSelector((state: RootState)=> state.identity)
+  const {dr, dateRdv, dateDeNaissance, tel, email, emailOuiNon, profession, adresse, codePostal, ville} = useSelector((state: RootState)=> state.identityAdult)
 
   const dispatch = useDispatch()
 
@@ -47,7 +47,7 @@ const IdentityPart: FC = () => {
          <View style={[styles.picker]}>
           <Picker
             selectedValue = {dr}
-            onValueChange = {(itemValue, itemIndex)=> dispatch(getDr(itemValue)) }
+            onValueChange = {(itemValue)=> dispatch(getDr(itemValue)) }
             mode="dropdown"
             style={{transform:[{scaleX: 1.05}, {scaleY:1.1}, {translateX:5}], color:"black"}}
             

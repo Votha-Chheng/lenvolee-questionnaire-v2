@@ -15,12 +15,7 @@ const consultationChildSlice = createSlice({
   initialState,
   reducers: {
     resetConsultationChild: (state) => {
-      state.motif = undefined, //
-      state.firstVisitDentiste = undefined, //
-      state.dateDerniereConsultation = "", //
-      state.radiosDentaires = undefined,
-      state.firstVisiteCabinet = undefined, //
-      state.commentConnaissezVousLeCabinet = undefined//
+      state = initialState
     },
     getMotif: (state, action) => {
       state.motif = action.payload

@@ -1,12 +1,12 @@
 export type DentsInfos = {
-  dentsExtraites?: boolean; //
+  dentsExtraites: boolean|undefined; //
   causesExtraction?: string[];
-  dentsRemplacees?: boolean;
+  dentsRemplacees: boolean|undefined;
   moyenDentRemplacement?: string[];
   raisonsNonRemplacementDentsExtraites? : string;
   sensationProthesesActuelles?: string;
-  utilisationMetaux?: boolean; //
+  utilisationMetaux: boolean|undefined; //
   preferencesUtilisationMetaux?:string;
-  dentsSensibles?:boolean; //
+  dentsSensibles:boolean|undefined; //
   listeSensibilite?: string[];
 }

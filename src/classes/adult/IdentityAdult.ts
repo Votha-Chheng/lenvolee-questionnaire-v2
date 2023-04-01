@@ -1,16 +1,16 @@
 export type IdentityAdult = {
-  dr?:string;
-  dateRdv?: string;
-  genre?: string;
-  nom?: string; //
-  prenom?:string; //
-  dateDeNaissance?:string; //
-  tel?: string; //
-  emailOuiNon?: boolean; //
+  dr:string|undefined;
+  dateRdv: string|undefined;
+  genre: string|undefined;
+  nom: string|undefined; //
+  prenom:string|undefined; //
+  dateDeNaissance:string|undefined; //
+  tel: string|undefined; //
+  emailOuiNon: boolean|undefined; //
   email?:string;
-  profession?:string; //
-  adresse?:string; //
-  codePostal?:number; //
-  ville?:string; //
+  profession:string|undefined; //
+  adresse:string|undefined; //
+  codePostal:number|undefined; //
+  ville:string|undefined; //
 
 }

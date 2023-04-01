@@ -2,14 +2,14 @@ import { Animated, StyleSheet, Text, View } from 'react-native'
 import React, { FC, useEffect, useRef } from 'react'
 import { RadioButton, TextInput } from 'react-native-paper'
 import { useDispatch, useSelector } from 'react-redux'
-import { getGenre, getNom, getPrenom } from '../../../store/adultState/identity'
+import { getGenre, getNom, getPrenom } from '../../../store/adultState/identityAdult'
 import { getEnceinte, getPilule } from '../../../store/adultState/medicalInfo'
 import { globalStyles } from '../../../utils/globalStyles'
 import { RootState } from '../../../store/store'
 import { onValidateLengthInput } from '../../../utils/validateLengthInput'
 
 const GenreComponentForTablet:FC = () => {
-  const {genre, nom, prenom} = useSelector((state: RootState)=> state.identity)
+  const {genre, nom, prenom} = useSelector((state: RootState)=> state.identityAdult)
 
   const dispatch = useDispatch()
 
@@ -52,7 +52,7 @@ const GenreComponentForTablet:FC = () => {
           style={genre === 'Monsieur' ? 
           {fontSize: 15, color:"grey"} 
           : 
-          {fontSize: 20, color:"green", fontWeight:"bold"}}
+          {fontSize: 16, color:"green", fontWeight:"bold"}}
         >
           Madame
         </Text>
@@ -71,7 +71,7 @@ const GenreComponentForTablet:FC = () => {
           style={genre === 'Madame' ? 
           {fontSize: 15, color:"grey" } 
           : 
-          {fontSize: 20, color:"green", fontWeight:"bold"}}
+          {fontSize: 16, color:"green", fontWeight:"bold"}}
         >
           Monsieur
         </Text>

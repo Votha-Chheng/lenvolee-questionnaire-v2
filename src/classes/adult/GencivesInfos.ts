@@ -1,7 +1,7 @@
 export type GencivesInfos = {
-  dentsEcartes?:boolean; //
-  saignementGencive?:boolean; //
-  traitementGencive?:boolean; //
+  dentsEcartes:boolean|undefined; //
+  saignementGencive:boolean|undefined; //
+  traitementGencive:boolean|undefined; //
   traitementGencivesPar?:string[];
 
 }

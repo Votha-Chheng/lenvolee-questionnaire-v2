@@ -24,8 +24,6 @@ import { addRadioItem } from '../../../utils/addRadioItem'
 import SensationsProtheses from './SensationsProtheses'
 import AddText from '../../../sharedUI/form/AddText'
 
-
-
 const DentsInfo: FC = () => {
   const {
     dentsExtraites, 

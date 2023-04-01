@@ -19,7 +19,7 @@ const MedicalHistoryEnd: FC = () => {
   
   const { saignementInterventionAccident, traitementRadiations, priseMedicamentActuelle, medicamentsActuels } = useSelector((state: RootState) => state.medicalInfos)
 
-  const {genre} = useSelector((state: RootState) => state.identity)
+  const {genre} = useSelector((state: RootState) => state.identityAdult)
 
   const dispatch = useDispatch()
   const { width } = useWindowDimensions()
@@ -69,13 +69,13 @@ const MedicalHistoryEnd: FC = () => {
             &#8227; Quel(s) médicament(s) prenez-vous ? :
           </Text>
           <View style={[globalStyles.flexRow, {alignItems:"flex-start"}]}>
-            <View style={{marginHorizontal:25}}>
+            <View style={{marginLeft: width> 600 ? 25 : 0}}>
               <CheckBoxComponent title="Antibiotiques" maladies={medicamentsActuels} handleChangeValues={addRadioItem} dispatcher={dispatch} reducerFromStore={getMedicamentsActuels} />
               <CheckBoxComponent title="Antihistaminiques" maladies={medicamentsActuels} handleChangeValues={addRadioItem} dispatcher={dispatch} reducerFromStore={getMedicamentsActuels}/>
               <CheckBoxComponent title="Tranquillisants" maladies={medicamentsActuels} handleChangeValues={addRadioItem} dispatcher={dispatch} reducerFromStore={getMedicamentsActuels}/>
               <CheckBoxComponent title="Aspirine" maladies={medicamentsActuels} handleChangeValues={addRadioItem} dispatcher={dispatch} reducerFromStore={getMedicamentsActuels}/>    
             </View>
-            <View style={{marginHorizontal: width> 500 ? 25 : 0}}>
+            <View style={{marginLeft: width> 600 ? 25 : 0}}>
               <CheckBoxComponent title="Traitement pour tension artérielle" maladies={medicamentsActuels} handleChangeValues={addRadioItem} dispatcher={dispatch} reducerFromStore={getMedicamentsActuels}/>
               <CheckBoxComponent title="Cortisone" maladies={medicamentsActuels} handleChangeValues={addRadioItem} dispatcher={dispatch} reducerFromStore={getMedicamentsActuels}/>
               <CheckBoxComponent title="Insuline" maladies={medicamentsActuels} handleChangeValues={addRadioItem} dispatcher={dispatch} reducerFromStore={getMedicamentsActuels}/>

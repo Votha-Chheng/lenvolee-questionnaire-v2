@@ -5,7 +5,6 @@ import { useDispatch, useSelector } from 'react-redux'
 import { StackNavigationProp } from '@react-navigation/stack'
 import { RootStackParamList } from '../../../App'
 import { useNavigation } from '@react-navigation/native'
-import { resetIdentity } from '../../store/adultState/identity'
 import { resetConsultationInfo } from '../../store/adultState/consultationInfo'
 import { resetDentsInfo } from '../../store/adultState/dentsInfo'
 import { resetDiversInfo } from '../../store/adultState/diversInfo'
@@ -25,6 +24,7 @@ import { RootState } from '../../store/store'
 import { resetListFichePatient } from '../../store/listePatients/listefichesPatients'
 import LockScreen from './components/LockScreen'
 import ChoosePassword from './components/ChoosePassword'
+import { resetIdentityAdult } from '../../store/adultState/identityAdult'
 
 export type HomeScreenProps = StackNavigationProp<RootStackParamList, "Home">
 
@@ -39,7 +39,7 @@ const HomeScreen:FC = () => {
   const dispatch = useDispatch()
 
   const resetAdultStateForm = ()=> {
-    dispatch(resetIdentity())
+    dispatch(resetIdentityAdult())
     dispatch(resetConsultationInfo())
     dispatch(resetDentsInfo())
     dispatch(resetDiversInfo())

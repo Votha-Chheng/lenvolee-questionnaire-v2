@@ -1,12 +1,12 @@
 export type DiversInfos = {
-  appareilDentaireUneFois?: boolean; //
-  preoccupationDentsOuiNon?: boolean; //
+  appareilDentaireUneFois: boolean|undefined; //
+  preoccupationDentsOuiNon: boolean|undefined; //
   preoccupationDents?:string;
-  modifierDentsOuiNon?: boolean; //
+  modifierDentsOuiNon: boolean|undefined; //
   modifierDents?:string;
-  anxieuxSoinsDentaires?: string; //
-  commentConnaissezVousLeCabinet?: string; //
-  autresRemarquesUtilesOuiNon?:boolean; //
+  anxieuxSoinsDentaires: string|undefined; //
+  commentConnaissezVousLeCabinet: string|undefined; //
+  autresRemarquesUtilesOuiNon:boolean|undefined; //
   autresRemarquesUtiles?:string;
 
 }

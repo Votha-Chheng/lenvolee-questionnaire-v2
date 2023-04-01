@@ -1,5 +1,5 @@
 export type HabitudesInfos = {
   habitudes: string[];
-  mauvaiseHaleine?: boolean; //
+  mauvaiseHaleine: boolean|undefined; //
 
 }

@@ -1,9 +1,9 @@
 import { Parent } from "./Parent"
 
-export interface IdentityAccompagnant {
+export type IdentityAccompagnant = {
   responsablesParents?: boolean
   parentOne : Parent
   parentTwoOuiNon: boolean | undefined
-  parentTwo?: Parent | null | string
-  situationFamiliale?: string
+  parentTwo: Parent | null | string | undefined
+  situationFamiliale: string|undefined
 }

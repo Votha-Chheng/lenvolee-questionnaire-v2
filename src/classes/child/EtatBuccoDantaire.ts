@@ -2,27 +2,27 @@ import { Boisson } from "./Boisson"
 import { DentCasse } from "./DentCasse"
 
 export type EtatBuccoDentaire = {
-  momentsBrossageDents?:string[] //
-  brossageSeul?:  boolean //
-  nbRepasParJour?: number //
-  sucrerieOuiNon?: boolean //
+  momentsBrossageDents:string[]|undefined//
+  brossageSeul:  boolean|undefined//
+  nbRepasParJour: number|undefined //
+  sucrerieOuiNon?: boolean|undefined //
   frequenceSucrerie?: string
-  sodaOuiNon?: boolean //
+  sodaOuiNon: boolean|undefined //
   sodasListe?: Boisson[]
-  cariesAvant?: boolean //
-  dentEnleveOuiNon?: boolean //
-  dentCasseOuiNon?: boolean //
+  cariesAvant: boolean|undefined //
+  dentEnleveOuiNon: boolean|undefined //
+  dentCasseOuiNon: boolean|undefined //
   dentCasse?: DentCasse[]
-  problemeApresTraitementDentaire?: boolean//
-  traitementOrtho?: boolean//
+  problemeApresTraitementDentaire: boolean|undefined//
+  traitementOrtho: boolean|undefined//
   habitudesChild: string[]//
-  anesthesieLocale?: boolean //
-  anesthesieDentaire?: boolean//
-  orthophonie?: boolean //
+  anesthesieLocale: boolean|undefined //
+  anesthesieDentaire: boolean|undefined//
+  orthophonie: boolean|undefined //
   troubleSommeil: string[]
-  craintesGeneralesOuiNon?: boolean//
+  craintesGeneralesOuiNon: boolean|undefined//
   listeCraintesGenerales?: string[]
-  craintesDentiste?: boolean//
-  remarquesUtilesOuiNon?: boolean//
-  remarquesUtiles: string
+  craintesDentiste: boolean|undefined//
+  remarquesUtilesOuiNon: boolean|undefined//
+  remarquesUtiles?: string
 }

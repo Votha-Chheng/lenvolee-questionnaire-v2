@@ -1,8 +1,8 @@
 export type ConsultationChild = {
-  motif ?: string //
-  firstVisitDentiste?:boolean //
-  dateDerniereConsultation?:string, //
-  radiosDentaires?:boolean
-  firstVisiteCabinet?:boolean //
-  commentConnaissezVousLeCabinet?:string//
+  motif: string|undefined //
+  firstVisitDentiste:boolean|undefined //
+  dateDerniereConsultation:string|undefined, //
+  radiosDentaires:boolean|undefined
+  firstVisiteCabinet:boolean|undefined //
+  commentConnaissezVousLeCabinet:string|undefined//
 }
