@@ -338,8 +338,11 @@ const VisualizeAdultForm: FC<VisualizeAdultFormProps> = ({fiche}) => {
         <Text style={globalStyles.key}>&#8227; Comment avez-vous connu le cabinet ?
           <Text style={[globalStyles.value, {color:"red"}]}> {fiche.commentConnaissezVousLeCabinet}</Text> 
         </Text>
+        {
+
+        }
         <Text style={globalStyles.key}>&#8227; Avez-vous des remarques utiles : 
-          <Text style={[globalStyles.value, {color:`${fiche.modifierDentsOuiNon ?'red':'black'}`}]}> {returnOuiNon(fiche.autresRemarquesUtilesOuiNon)}</Text>
+          <Text style={[globalStyles.value, {color:`${fiche.autresRemarquesUtilesOuiNon ?'red':'black'}`}]}> {returnOuiNon(fiche.autresRemarquesUtilesOuiNon)}</Text>
         </Text>
         {
           fiche.autresRemarquesUtilesOuiNon &&
