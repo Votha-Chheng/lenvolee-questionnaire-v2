@@ -339,16 +339,10 @@ const VisualizeAdultForm: FC<VisualizeAdultFormProps> = ({fiche}) => {
           <Text style={[globalStyles.value, {color:"red"}]}> {fiche.commentConnaissezVousLeCabinet}</Text> 
         </Text>
         {
-
-        }
-        <Text style={globalStyles.key}>&#8227; Avez-vous des remarques utiles : 
-          <Text style={[globalStyles.value, {color:`${fiche.autresRemarquesUtilesOuiNon ?'red':'black'}`}]}> {returnOuiNon(fiche.autresRemarquesUtilesOuiNon)}</Text>
-        </Text>
-        {
-          fiche.autresRemarquesUtilesOuiNon &&
-          <Text style={globalStyles.key}>&#8227; Remarques : 
-          <Text style={[globalStyles.value, {color:"red"}]}>{fiche.autresRemarquesUtiles}</Text>
-          </Text>
+          fiche.autresRemarquesUtilesOuiNon===true ?
+            <Text style={[globalStyles.key, {color:"red"}]}>Autres remarques utiles : <Text style={[globalStyles.value, , {color:"red"}]}> {fiche.autresRemarquesUtiles}</Text></Text>
+            :
+            <Text style={globalStyles.key}>Pas d'autres remarques</Text>
         }
       </View>
     </ScrollView>
