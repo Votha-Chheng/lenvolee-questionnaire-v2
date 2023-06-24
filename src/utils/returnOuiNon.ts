@@ -3,7 +3,7 @@ export const returnOuiNon = (statement: boolean): string=>{
     return "OUI"
   } 
   if(statement===false){
-    return "OUI"
+    return "NON"
   }
   return "Pas de réponse"
 }

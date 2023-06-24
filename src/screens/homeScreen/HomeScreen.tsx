@@ -1,10 +1,10 @@
-import { Alert, StyleSheet, Text, View } from 'react-native'
+import { Alert, Linking, StyleSheet, Text, View } from 'react-native'
 import React, { FC, useEffect, useState } from 'react'
 import { Button } from 'react-native-paper'
 import { useDispatch, useSelector } from 'react-redux'
 import { StackNavigationProp } from '@react-navigation/stack'
 import { RootStackParamList } from '../../../App'
-import { useNavigation } from '@react-navigation/native'
+import { Link, useNavigation } from '@react-navigation/native'
 import { globalStyles } from '../../utils/globalStyles'
 import { RootState } from '../../store/store'
 import { resetListFichePatient } from '../../store/listePatients/listefichesPatients'
@@ -143,6 +143,16 @@ const HomeScreen:FC = () => {
             labelStyle={{fontSize:17, flex:1, justifyContent:"center", paddingHorizontal:0}}
           >
             Verrouiller l'écran d'Accueil
+          </Button>
+          <Button
+            buttonColor='#297373'
+            mode='contained'
+            dark={true}
+            onPress={()=>Linking.openURL("https://doc-hosting.flycricket.io/l-envolee-questionnaire-terms-of-use/40b613a9-f924-4cd0-948c-ceaeb19c3046/terms")}
+            style={globalStyles.homeButtonStyle}
+            labelStyle={{fontSize:17, flex:1, justifyContent:"center", paddingHorizontal:0}}
+          >
+            Conditions générales d'utilisation
           </Button>
         </View>
       }  
