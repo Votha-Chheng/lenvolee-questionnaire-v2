@@ -22,6 +22,7 @@ import { ActivityIndicator } from 'react-native-paper';
 import { globalStyles } from './src/utils/globalStyles';
 import SplashScreen from 'react-native-splash-screen';
 import VisualizeFormScreen from './src/screens/visualizeFormScreen/VisualizeFormScreen';
+import TermsOfUseScreen from './src/screens/termsOfUse/TermsOfUseScreen';
 
 export type RootStackParamList = {
   Home: undefined
@@ -32,6 +33,7 @@ export type RootStackParamList = {
   "Visualiser fiche patient": {
     id : number
   }
+  "Conditions générales d'utilisation": undefined
 }
 
 const RootStack = createStackNavigator<RootStackParamList>();
@@ -54,6 +56,7 @@ function App(): JSX.Element {
             <RootStack.Screen name='ChildForm' component={ChildFormScreen} />
             <RootStack.Screen name='Liste des fiches de Patient' component={ListePatientsScreen} options={{headerShown: true}} />
             <RootStack.Screen name='Merci' component={MerciScreen} />
+            <RootStack.Screen name="Conditions générales d'utilisation" component={TermsOfUseScreen} />
             <RootStack.Screen name='Visualiser fiche patient' options={{headerShown: true}} children={({route})=> <VisualizeFormScreen id={route.params.id} /> }/>
           </RootStack.Navigator>
         </NavigationContainer>

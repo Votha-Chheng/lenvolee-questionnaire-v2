@@ -4,7 +4,7 @@ import { Button } from 'react-native-paper'
 import { useDispatch, useSelector } from 'react-redux'
 import { StackNavigationProp } from '@react-navigation/stack'
 import { RootStackParamList } from '../../../App'
-import { Link, useNavigation } from '@react-navigation/native'
+import { useNavigation } from '@react-navigation/native'
 import { globalStyles } from '../../utils/globalStyles'
 import { RootState } from '../../store/store'
 import { resetListFichePatient } from '../../store/listePatients/listefichesPatients'
@@ -54,6 +54,9 @@ const HomeScreen:FC = () => {
 
   const pressToListePatients = ()=>{
     navigation.navigate("Liste des fiches de Patient")
+  }
+  const pressToPrivacyPolicy = ()=>{
+    navigation.navigate("Conditions générales d'utilisation")
   }
 
   const createTwoButtonAlert = () => {
@@ -148,7 +151,7 @@ const HomeScreen:FC = () => {
             buttonColor='#297373'
             mode='contained'
             dark={true}
-            onPress={()=>Linking.openURL("https://doc-hosting.flycricket.io/l-envolee-questionnaire-terms-of-use/40b613a9-f924-4cd0-948c-ceaeb19c3046/terms")}
+            onPress={()=>pressToPrivacyPolicy()}
             style={globalStyles.homeButtonStyle}
             labelStyle={{fontSize:17, flex:1, justifyContent:"center", paddingHorizontal:0}}
           >
